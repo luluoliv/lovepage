@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+}
+
+.login-container {
+  width: 50%;
+  height: 75%;
+  margin: 0 auto;
+
+  background: rgba(37, 37, 37, 0.95);
+  border-radius: 43px;
+}
+
+.login-photo {
+  height: 20%;
+}
