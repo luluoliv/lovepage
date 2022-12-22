@@ -1,5 +1,5 @@
 import Btn from './button';
-import Dropdown from './dropdown'
+import Dropdown from './dropdown';
 
 function Login() {
     function showPass() {
@@ -12,12 +12,12 @@ function Login() {
             inputLogin.type = "password";
         }
 
-        if (icon.classList.contains("fa-regular fa-eye")) {
-            icon.classList.remove("fa-regular fa-eye");
-            icon.classList.add("fa-regular fa-eye-slash");
+        if (icon.classList.contains("fa-eye")) {
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
         } else {
-            icon.classList.remove("fa-regular fa-eye-slash");
-            icon.classList.add("fa-regular fa-eye");
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
         }
     };
 
@@ -27,7 +27,7 @@ function Login() {
             <div className="login-inputs w-3/4 text-center mt-8">
                 <Dropdown />
                 <div className="login-password flex flex-row justify-between mt-3 px-4 py-2 rounded-xl border border-solid border-[#757575]">
-                    <input id='login-input' className="login-input w-full bg-transparent placeholder:text-[#757575] text-[#757575] text-xs" type="password" placeholder="Senha" minlength="5" maxlength="8" required></input>
+                    <input id='login-input' className="login-input w-full bg-transparent placeholder:text-[#757575] text-[#757575] text-xs" type="password" placeholder="Senha" minLength="5" maxLength="8" required></input>
                     <button onClick={showPass} id="login-eye" className="login-eye fa-regular fa-eye text-[#757575]"></button>
                 </div>
                 <Btn name="Login" />
