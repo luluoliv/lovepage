@@ -1,24 +1,25 @@
+import NavBar from "../NavBar";
+import ButtonHome from "./ButtonHome";
+
 function Home() {
     return (
         <div className='home flex bg-[#252525] w-full h-screen'>
-
-            <div className="nav flex flex-col fixed justify-between items-center w-14 h-full p-8 top-0 left-0 rounded-r-3xl text-xl text-[#f5f5f5] bg-[#313131]">
-                <div className="nav-top">
-                    <button className="nav-btn fa-solid fa-user"></button>
-                    <button className="nav-btn fa-solid fa-house"></button>
+            <NavBar />
+            <div className="home-container w-full">
+                <div className="my-10 mx-20 text-xl text-[#FDE3A8]">
+                    <div className="flex flex-row gap-12 my-10">
+                        <ButtonHome to={"/photos"} className="fa-solid fa-camera-retro text-3xl" name="Photos" />
+                        <ButtonHome to={"/games"} className="fa-solid fa-gamepad text-3xl" name="Games" />
+                        <ButtonHome to={"/movies"} className="fa-solid fa-film text-3xl" name="Movies" />
+                    </div>
+                    <div className="flex flex-row gap-10">
+                        <ButtonHome to={"/notes"} className="fa-solid fa-book text-3xl" name="Notes" />
+                        <ButtonHome to={"/places"} className="fa-solid fa-earth-america text-3xl" name="Places" />
+                        <ButtonHome to={"/home"} className="fa-solid fa-headphones text-3xl" name="Soon" />
+                    </div>
                 </div>
-                    
-                <div className="nav-bottom">
-                    <button className="nav-btn fa-solid fa-camera-retro"></button>
-                    <button className="nav-btn fa-solid fa-gamepad"></button>
-                    <button className="nav-btn fa-solid fa-film"></button>
-                    <button className="nav-btn fa-solid fa-book"></button>
-                    <button className="nav-btn fa-solid fa-earth-america"></button>
-                </div>
-            </div>
-            
-            <div className="home-container">
-                
+                <div className="m-auto my-10 bg-[#f5f5f5] w-11/12 h-0.5"></div>
+                <div className=""></div>
             </div>
         </div>
     );
