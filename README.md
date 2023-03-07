@@ -1,6 +1,7 @@
 <h1 align="center">Welcome to LovingDevs 👋</h1>
 
 ### ✨ [Demo](https:/luluoliv.github.io/lovepage/)
+### [Design](https://www.figma.com/file/ORTGCVBP53r8833r17wLKp/LovingDevs-2.0?node-id=0%3A1&t=Bie6dWctmPOl3vpL-1)
 
 ## Author
 
