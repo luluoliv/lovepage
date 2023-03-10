@@ -16,9 +16,9 @@ function Login() {
 
     const imgStyle = {
         position: 'absolute',
-        height: '70%',
-        left: '12%',
-        top: '15%'
+        height: '75%',
+        left: '15%',
+        top: '18%'
     }
 
     return (

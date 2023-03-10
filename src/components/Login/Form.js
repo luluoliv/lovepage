@@ -25,14 +25,14 @@ function LoginForm(props) {
     
     const cardStyle = {
         position: 'absolute',
-        right: '12%',
-        margin: '10%',
+        right: '13%',
+        margin: '8%',
         backgroundColor: '#D9D9D9',
         boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
         borderRadius: '64px',
         border: 'none',
         padding: '3%',
-        width: '25%',
+        width: '30%',
         height: '50%',
         textAlign: 'center',
     };
