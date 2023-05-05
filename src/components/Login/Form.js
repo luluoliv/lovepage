@@ -27,8 +27,9 @@ function LoginForm(props) {
         position: 'absolute',
         width: '593px',
         height: '500px',
-        right: '15%',
-        marginTop: '220px',
+        left: '70%',
+        top: '50%',
+        transform: 'translate(-50%, -50%)',
         backgroundColor: '#D9D9D9',
         boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
         borderRadius: '64px',
@@ -60,6 +61,8 @@ function LoginForm(props) {
         height: '100%',
         borderRadius: '64px',
         backgroundColor: 'transparent',
+        boxShadow: 'none',
+        border: 'none'
     };
 
     return (
