@@ -1,6 +1,6 @@
 
 import { Card } from "react-bootstrap";
-import Btn from '../Button.js';
+import FormsButton from "./Button";
 import Form from 'react-bootstrap/Form';
 
 function LoginForm(props) {
@@ -75,7 +75,7 @@ function LoginForm(props) {
                     <Form.Control style={inputContent} id='login-input' type="password" placeholder="Senha" />
                     <i style={{backgroundColor: 'transparent', cursor: 'pointer', padding: '2%'}} onClick={showPass} id="login-eye" className="fa-regular fa-eye"></i>
                 </Form.Group>
-                <Btn name={'Logar'}/>
+                <FormsButton name={'Logar'}/>
             </Form>
         </Card>
     )
