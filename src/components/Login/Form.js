@@ -25,15 +25,15 @@ function LoginForm(props) {
     
     const cardStyle = {
         position: 'absolute',
-        right: '13%',
-        margin: '8%',
+        width: '593px',
+        height: '500px',
+        right: '15%',
+        marginTop: '220px',
         backgroundColor: '#D9D9D9',
         boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
         borderRadius: '64px',
         border: 'none',
         padding: '3%',
-        width: '30%',
-        height: '50%',
         textAlign: 'center',
     };
     
@@ -43,10 +43,12 @@ function LoginForm(props) {
         justifyContent: 'center',
         alignItems: 'center',
         focus: 'none',
+        height: '48px',
         outline: 'none',
         backgroundColor: 'transparent',
         borderRadius: '64px',
-        margin: '5% 0 10% 0',
+        marginTop: '30px',
+        marginBottom: '15px',
         border: 'solid 1px #252525',
         boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
     };
@@ -62,14 +64,14 @@ function LoginForm(props) {
 
     return (
         <Card style={cardStyle}>
-            <h3 style={{fontSize: '2em'}}>LovingDevs</h3>
-            <Form>
+            <h3 style={{fontSize: '3em'}}>LovingDevs</h3>
+            <Form className="mt-2">
                 <Form.Select style={inputStyle} aria-label="Default select example">
                     <option>Quem é você?</option>
                     <option value="1">Lulu</option>
                     <option value="2">Guizen</option>
                 </Form.Select>
-                <Form.Group style={inputStyle} className="mb-3" controlId="formBasicPassword">
+                <Form.Group style={inputStyle} controlId="formBasicPassword">
                     <Form.Control style={inputContent} id='login-input' type="password" placeholder="Senha" />
                     <i style={{backgroundColor: 'transparent', cursor: 'pointer', padding: '2%'}} onClick={showPass} id="login-eye" className="fa-regular fa-eye"></i>
                 </Form.Group>
