@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;500;600;700&family=Mitr&family=Montserrat:wght@400;500&family=MuseoModerno&family=Noto+Sans&family=Outfit&family=Poppins&family=Press+Start+2P&family=Ubuntu:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {
   margin: 0;
@@ -7,6 +7,7 @@
   box-sizing: border-box;
   outline: none;
   border: none;
+  -webkit-user-select: none;
   user-select: none;
 }
 

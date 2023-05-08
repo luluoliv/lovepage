@@ -20,7 +20,6 @@ function FormsButton(props) {
             marginTop: '50px' ,
             bottom: '0',    
             borderRadius: '18px',
-            transition: 'transform 2s ease-in-out',
         };
     }else{
         btnStyle = {
