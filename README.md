@@ -1,4 +1,4 @@
-# LovingDevs
+# LovingDevs </>
 LovingDevs is a React website designed for couples, featuring tabs for movies, series, and places to visit or watch, a profile section, a complaint page with a chat, a photo wall, and more.
 
 ## Demo and Design
