@@ -7,8 +7,8 @@ Check out the live (demo)[ttps://loving-devs.vercel.app/] and the design on [Fig
 ## Authors
 LovingDevs was created by Luara Lima and Guilherme Campos. You can find more of their work on their websites or GitHub pages:
 
-[API's](github.com/guizen-dev/lovepage_api)
-[Guilherme Campos' GitHub](github.com/guizen-dev)
+- [API's](github.com/guizen-dev/lovepage_api)
+- [Guilherme Campos' GitHub](github.com/guizen-dev)
 ## Installation
 
 1. Clone the repository:
