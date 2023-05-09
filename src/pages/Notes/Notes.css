@@ -1,0 +1,19 @@
+.table{
+    width: auto;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 20px;
+    
+}
+
+.notes-column{
+    width: 80%;
+}
+
+table tr td:nth-child(2) {
+    width: 300px;
+}
+
+.hints {
+
+}

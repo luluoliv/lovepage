@@ -1,0 +1,89 @@
+.received-content{
+    display: flex;
+    flex-direction: row;
+}
+
+.sent-content{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.chat{
+    width: 500px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 0 10px 0 10px;
+    border-width: 10px;
+    border-radius: 15px;
+    background-color: transparent;
+    border: solid 1px #252525;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+span{
+    font-size: 20px;
+}
+
+.text-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.response-inp{
+    width: 400px;
+    height: auto;
+    padding-top: 10px;
+    padding-left: 5px;
+    border-radius: 15px;
+    resize: none;
+    box-sizing: border-box;
+    border-bottom:solid 1px #252525;
+    border-right:solid 1px #252525;
+    background-color: transparent;
+}
+
+.arrow{
+    position: relative;
+    float: right;
+    cursor: pointer;
+    color: #252525
+}
+
+.arrow:hover{
+    color: #535353;
+}
+
+.text-input{
+    margin: auto
+}
+
+.icon{
+    color: '#252525'
+}
+
+::placeholder {
+    color: #535353;
+}
+
+.scroll-div{
+    margin-top: 5px;
+    padding: 20px;
+    width: 100%;
+    max-height: 600px;
+    overflow: auto;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #252525;
+    border-radius: 3px;
+}

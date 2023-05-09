@@ -1,0 +1,15 @@
+.chat-container{
+    padding: 0px 25% 0px 25%;
+}
+
+.button{
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #252525;
+    color: #FFFFFF
+}
+
+.button:hover{
+    background-color: #535353;
+}

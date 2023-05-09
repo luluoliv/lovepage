@@ -5,11 +5,8 @@ import { divStyle } from '../components/BackgroundDiv/BackgroundDiv';
 export default function Home() {
 
     return (
-        <>
-            <div style={divStyle}>
-                <NavBar />
-            </div>
-        </>
-
+        <div style={divStyle}>
+            <NavBar />
+        </div>
     );
 }

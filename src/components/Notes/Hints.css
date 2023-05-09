@@ -1,0 +1,44 @@
+.hint-table{
+    width: 100%;
+    background-color: #252525B2;
+    border-radius: 10px;
+    height: 250px;
+    border-spacing: 40px;
+    margin-left: 30px;
+}
+
+.legenda{
+    margin-left: 30px;
+}
+
+td{
+    border-top: none;
+    border-bottom: none;
+    align-items: center;
+}
+
+.hint-td-tr{
+    padding: 20px;
+}
+
+.resolvido {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #009F06;
+    position: relative;
+    float: right;
+}
+
+.nao-resolvido {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #9C0000;
+    position: relative;
+    float: right;
+}
+
+.hint-title {
+    color: #FFFFFF;
+}
