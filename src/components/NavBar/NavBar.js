@@ -30,7 +30,7 @@ export default function NavBar() {
                     <Link to={"/notes"} class="nav-item navbar-nav fa-xl">
                         <a class="nav-link" href="/"><i class="fa-solid fa-note-sticky"></i></a>
                     </Link>
-                    <Link to={"/movies"} class="nav-item navbar-nav fa-xl">
+                    <Link to={"/profile"} class="nav-item navbar-nav fa-xl">
                         <a class="nav-link disabled" href="/"><i class="fa-solid fa-circle-user"></i></a>
                     </Link>
             </div>
