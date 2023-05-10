@@ -1,3 +1,4 @@
+import React from 'react';
 import BgLogin from '../assets/bgLogin.svg';
 import ImgLogin from '../assets/login.png';
 import LoginForm from '../components/Login/Form';

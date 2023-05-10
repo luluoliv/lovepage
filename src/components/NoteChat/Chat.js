@@ -1,3 +1,4 @@
+import React from 'react';
 import './Chat.css'
 import { useState } from 'react'; 
 

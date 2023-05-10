@@ -1,5 +1,5 @@
-import './Note.css'
 import React from 'react';
+import './Note.css'
 import {useNavigate} from 'react-router-dom';
 
 export default function Note(){

@@ -1,3 +1,4 @@
+import React from 'react';
 import './Hints.css'
 
 export default function Hints(){

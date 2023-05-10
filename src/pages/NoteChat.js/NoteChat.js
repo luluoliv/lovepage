@@ -1,3 +1,4 @@
+import React from 'react';
 import { divStyle } from '../../components/BackgroundDiv/BackgroundDiv';
 import NavBar from '../../components/NavBar/NavBar'
 import './NoteChat.css'

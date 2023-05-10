@@ -1,3 +1,4 @@
+import React from 'react';
 import NavBar from '../../components/NavBar/NavBar'
 import { divStyle } from '../../components/BackgroundDiv/BackgroundDiv';
 import Note from '../../components/Notes/Note'
