@@ -4,7 +4,7 @@ import { divStyle } from '../../components/BackgroundDiv/BackgroundDiv';
 import Note from '../../components/Notes/Note'
 import Hints from '../../components/Notes/Hints'
 import './Notes.css'
-import TitlePage from '../../components/TitlePage';
+import TitlePage from '../../components/TitlePage/TitlePage';
 
 
 
