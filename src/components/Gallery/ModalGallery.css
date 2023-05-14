@@ -1,0 +1,16 @@
+.modal-gallery {
+    color: #efefef;
+}
+
+.modal-gallery-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+/* .modal-gallery-btn {
+
+} */

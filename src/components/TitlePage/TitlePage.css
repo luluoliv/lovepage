@@ -22,3 +22,11 @@
     align-items: center;
     justify-content: center;
 }
+
+.modal-content {
+    width: 40%;
+    padding: 5%;
+    margin: 3% auto;
+    background-color: #e08181;
+    border-radius: 50px;
+}

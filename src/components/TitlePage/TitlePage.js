@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useState } from "react";
 import Modal from "react-modal";
-import { useState } from "react";
 
-import "./TitlePage.css"
+import "./TitlePage.css";
+import ModalGallery from "../../components/Gallery/ModalGallery";
 
-export default function TitlePage(props) {
-
+function TitlePage(props) {
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     function openModal() {
         setModalIsOpen(true);
+    }
+
+    function closeModal() {
+        setModalIsOpen(false);
     }
 
     return (
@@ -21,15 +24,11 @@ export default function TitlePage(props) {
                 </button>
             </div>
 
-            <Modal
-                isOpen={modalIsOpen}
-                onRequestClose={() => setModalIsOpen(false)}
-            >
-                <h2>Adicionar</h2>
-                <button onClick={() => setModalIsOpen(false)}>
-                    <span>x</span>
-                </button>
+            <Modal className={"modal-content"} isOpen={modalIsOpen} onRequestClose={closeModal}>
+                <ModalGallery onClose={closeModal} />
             </Modal>
         </>
     );
 }
+
+export default TitlePage;
