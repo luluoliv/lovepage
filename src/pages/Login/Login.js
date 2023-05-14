@@ -1,5 +1,5 @@
 import React from 'react';
-import ImgLogin from "C:/Users/lilia/Desktop/lovepage/src/assets/login.png";
+import ImgLogin from "../../assets/login.png";
 import LoginForm from '../../components/Login/Form';
 
 import "./Login.css";
