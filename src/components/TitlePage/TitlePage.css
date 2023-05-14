@@ -24,9 +24,9 @@
 }
 
 .modal-content {
-    width: 40%;
-    padding: 5%;
+    padding: 4%;
     margin: 3% auto;
     background-color: #e08181;
     border-radius: 50px;
+    border: none;
 }

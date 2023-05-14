@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Modal from "react-modal";
 
 import "./TitlePage.css";
 import ModalGallery from "../../components/Gallery/ModalGallery";
@@ -24,9 +23,7 @@ function TitlePage(props) {
                 </button>
             </div>
 
-            <Modal className={"modal-content"} isOpen={modalIsOpen} onRequestClose={closeModal}>
-                <ModalGallery onClose={closeModal} />
-            </Modal>
+            <ModalGallery show={modalIsOpen} onHide={closeModal} />
         </>
     );
 }

@@ -1,35 +1,53 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Modal } from "react-bootstrap";
 
 import "./ModalGallery.css";
 
 function ModalGallery(props) {
-
     return (
-        <div className="modal-gallery">
-            <div className="modal-gallery-head">
-                <button className="modal-gallery-btn" onClick={props.onClose} variant="outline-dark">
-                    <span  className="modal-gallery-span">x</span>
-                </button>
-                <h3>Add photo</h3>
-            </div>
+        <Modal
+            className="modal-gallery"
+            {...props}
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+            size="md"
+        >
+            <Modal.Header
+                className="modal-gallery-head"
+                closeButton
+                closeVariant="white"
+            >
+                <Modal.Title id="contained-modal-title-vcenter">
+                    Add photo
+                </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <Form>
+                    <Form.Control
+                        className="modal-gallery-file mb-3"
+                        type="file"
+                    />
 
-            <Form>
-                <Form.Group controlId="formFile" className="mb-3">
-                    <Form.Label>Default file input example</Form.Label>
-                    <Form.Control type="file" />
-                </Form.Group>
-
-                <Form.Group
-                    className="mb-3"
-                    controlId="exampleForm.ControlTextarea1"
-                >
-                    <Form.Label>Description</Form.Label>
-                    <Form.Control as="textarea" rows={3} />
-                    <Button variant="outline-dark">Submit</Button>
-                </Form.Group>
-            </Form>
-        </div>
+                    <Form.Group
+                        className="mb-3"
+                        controlId="exampleForm.ControlTextarea1"
+                    >
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control
+                            className="modal-gallery-textarea"
+                            as="textarea"
+                            rows={3}
+                        />
+                    </Form.Group>
+                    <Button
+                        className="modal-gallery-btn"
+                        variant="outline-dark"
+                    >
+                        Submit
+                    </Button>
+                </Form>
+            </Modal.Body>
+        </Modal>
     );
 }
 

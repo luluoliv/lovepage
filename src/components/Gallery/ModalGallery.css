@@ -11,6 +11,21 @@
     margin-bottom: 5%;
 }
 
-/* .modal-gallery-btn {
+.modal-gallery-btn {
+    display: flex;
+    margin: 0 auto;
+    color: #efefef;
+    border: #efefef;
+}
 
-} */
+.modal-gallery-file,
+.modal-gallery-textarea {
+    border-radius: 15px;
+}
+
+.modal-gallery-file:focus,
+.modal-gallery-textarea:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #b4b4b4;
+}
