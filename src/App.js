@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Notes from "./pages/Notes/Notes";
 import Gallery from "./pages/Gallery/Gallery";
 import NoteChat from "./pages/NoteChat.js/NoteChat";
+import Games from "./pages/Games/Games";
 
 function App() {
   return (
@@ -16,8 +17,8 @@ function App() {
       <Route path='/notes' element={<Notes />} />
        <Route path="/gallery" element={<Gallery />} />
        <Route path="/notechat" element={<NoteChat />} />
-      {/*<Route path='/games' element={<Games />}  />
-      <Route path='/movies' element={<Home />}  />
+      <Route path='/games' element={<Games />}  />
+      {/* <Route path='/movies' element={<Home />}  />
       <Route path='/places' element={<Home />}  /> */}
         </Routes>
     );
