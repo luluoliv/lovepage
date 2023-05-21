@@ -10,8 +10,6 @@ import TitlePage from '../../components/TitlePage/TitlePage';
 
 export default function Notes() {
 
-    
-
     return (
         <div style={divStyle}>
             <NavBar />

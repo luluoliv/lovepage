@@ -1,27 +1,53 @@
-import React from 'react';
-import './Note.css'
+import React, { useEffect, useState } from 'react';
 import {useNavigate} from 'react-router-dom';
+import axios from 'axios';
+import './Note.css'
 
-export default function Note(){
+export default function Note(props){
 
     const navigate = useNavigate();
-    const handleClick = () => navigate('/notechat');
+    function handleClick(note_id){
+        localStorage.setItem('note_id', note_id)
+        navigate('/notechat')
+    }
+
+    const [notes, setNotes] = useState(null);
+    
+    useEffect(() => {
+        axios.get('https://love-pageapi.onrender.com/notes/')
+        .then(responseData => {
+            setNotes(responseData.data)
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    }, []);
+
+    const handleStatusColor = (state) =>{
+        if(state == '0'){
+            return 'status-red'
+        }else{
+            return 'status-green'
+        }
+    }
 
     return(
         <>
             <div className='grid-container'>
-                <div class='grid-item' onClick={handleClick}>
-                    <div className='titulo'>
-                        Luara traiu o Guilherme com um coreano
-                    </div>
-                        <div className='status'></div>
-                </div>
-                <div class='grid-item' onClick={handleClick}>
-                    <div className='titulo'>
-                        Luara disse que AMA trair
-                    </div>
-                        <div className='status'></div>
-                </div>
+                {
+                    notes ? (
+                        notes.map((item) =>{
+                            return(
+                                <div class='grid-item' onClick={() => handleClick(item.id)}>
+                                    <div className='titulo'>
+                                        {item.title}
+                                    </div>
+                                        <div className={handleStatusColor(item.state)}></div>
+                                </div>
+                            )
+                        })
+                    ) : null
+                }
             </div>
         </>
         

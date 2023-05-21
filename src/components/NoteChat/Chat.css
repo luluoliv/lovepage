@@ -31,6 +31,11 @@ span{
     align-items: center;
 }
 
+.first-message{
+    margin-top: 5px;
+    width: 100%;
+}
+
 .response-inp{
     width: 400px;
     height: auto;

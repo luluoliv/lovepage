@@ -21,11 +21,20 @@
   background: linear-gradient(0deg, rgb(161, 161, 161) 0%, rgba(161, 161, 161) 100%);
 }
 
-.status {
+.status-green {
   width: 40px;
   height: 40px;
   border-radius: 10px;
   background-color: #009F06;
+  position: relative;
+  float: right;
+}
+
+.status-red {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #db0707;
   position: relative;
   float: right;
 }

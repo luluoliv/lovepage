@@ -1,0 +1,31 @@
+.modal-note {
+    color: #efefef;
+}
+
+.modal-note-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.modal-note-btn {
+    display: flex;
+    margin: 0 auto;
+    color: #efefef;
+    border: #efefef;
+}
+
+.modal-note-file,
+.modal-note-textarea {
+    border-radius: 15px;
+}
+
+.modal-note-file:focus,
+.modal-note-textarea:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #b4b4b4;
+}
+
