@@ -15,7 +15,7 @@ function LoginForm(props) {
     const toggleShowPassword = () => setShowPassword((prev) => !prev);
 
     const toggleValidUser = () =>{
-        if(selectedOption == 'Luara' || selectedOption == 'Guilherme'){
+        if(selectedOption === 'Luara' || selectedOption === 'Guilherme'){
             return true
         }else{
             return false
