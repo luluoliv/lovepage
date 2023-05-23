@@ -38,7 +38,7 @@ export default function Note(props) {
                     ? notes.map((item) => {
                           return (
                               <div
-                                  class="grid-item"
+                                  className="grid-item"
                                   onClick={() => handleClick(item.id)}
                               >
                                   <div className="titulo">{item.title}</div>

@@ -13,46 +13,46 @@ export default function NavBar() {
     return (
         <nav
             style={NavBarStyle}
-            class="navbar navbar-expand-lg navbar-light bg-light"
+            className="navbar navbar-expand-lg navbar-light bg-light"
         >
             <div
-                class="collapse navbar-collapse justify-content-center gap-5"
+                className="collapse navbar-collapse justify-content-center gap-5"
                 id="navbarNav align-items-center"
             >
-                <Link to={"/home"} class="nav-item active navbar-nav fa-xl">
-                    <a class="nav-link" href="/">
-                        <i class="fa-solid fa-house"></i>{" "}
-                        <span class="sr-only">(current)</span>
+                <Link to={"/home"} className="nav-item active navbar-nav fa-xl">
+                    <a className="nav-link" href="/">
+                        <i className="fa-solid fa-house"></i>
+                        <span className="sr-only">(current)</span>
                     </a>
                 </Link>
-                <Link to={"/gallery"} class="nav-item navbar-nav fa-xl">
-                    <a class="nav-link" href="/">
-                        <i class="fa-solid fa-images"></i>
+                <Link to={"/gallery"} className="nav-item navbar-nav fa-xl">
+                    <a className="nav-link" href="/">
+                        <i className="fa-solid fa-images"></i>
                     </a>
                 </Link>
-                <Link to={"/games"} class="nav-item navbar-nav fa-xl">
-                    <a class="nav-link" href="/">
-                        <i class="fa-solid fa-gamepad"></i>
+                <Link to={"/games"} className="nav-item navbar-nav fa-xl">
+                    <a className="nav-link" href="/">
+                        <i className="fa-solid fa-gamepad"></i>
                     </a>
                 </Link>
-                <Link to={"/places"} class="nav-item navbar-nav fa-xl">
-                    <a class="nav-link" href="/">
-                        <i class="fa-solid fa-earth-americas"></i>
+                <Link to={"/places"} className="nav-item navbar-nav fa-xl">
+                    <a className="nav-link" href="/">
+                        <i className="fa-solid fa-earth-americas"></i>
                     </a>
                 </Link>
-                <Link to={"/movies"} class="nav-item navbar-nav fa-xl">
-                    <a class="nav-link" href="/">
-                        <i class="fa-solid fa-ticket"></i>
+                <Link to={"/movies"} className="nav-item navbar-nav fa-xl">
+                    <a className="nav-link" href="/">
+                        <i className="fa-solid fa-ticket"></i>
                     </a>
                 </Link>
-                <Link to={"/notes"} class="nav-item navbar-nav fa-xl">
-                    <a class="nav-link" href="/">
-                        <i class="fa-solid fa-note-sticky"></i>
+                <Link to={"/notes"} className="nav-item navbar-nav fa-xl">
+                    <a className="nav-link" href="/">
+                        <i className="fa-solid fa-note-sticky"></i>
                     </a>
                 </Link>
-                <Link to={"/"} class="nav-item navbar-nav fa-xl">
-                    <a class="nav-link disabled" href="/">
-                        <i class="fa-solid fa-circle-user"></i>
+                <Link to={"/"} className="nav-item navbar-nav fa-xl">
+                    <a className="nav-link disabled" href="/">
+                        <i className="fa-solid fa-circle-user"></i>
                     </a>
                 </Link>
             </div>

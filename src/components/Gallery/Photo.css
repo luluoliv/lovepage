@@ -1,0 +1,30 @@
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    column-gap: 20px;
+    row-gap: 20px;
+    margin: 1% 5% 0 5%;
+    padding-bottom: 150px;
+    padding-right: 30px;
+    height: 400px; 
+    overflow: auto;
+}
+
+.photo-item {
+    padding: 5%;
+    width: 100%;
+    background-color: white;
+}
+
+.photo-img {
+    width: 100%;
+}
+
+.photo-desc {
+    margin-bottom: 0;
+    margin-top: 2%;
+    font-size: 0.9em;
+    text-align: center;
+    color: black;
+}

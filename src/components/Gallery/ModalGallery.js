@@ -6,24 +6,21 @@ import axios from "axios";
 import "./ModalGallery.css";
 
 function ModalGallery(props) {
-    const [selectedFile, setSelectedFile] = useState(null);
-    const [description, setDescription] = useState("");
+    const [photoUrl, setPhotoUrl] = useState("");
+    const [description, setDesc] = useState("");
 
-    const handleFileChange = (event) => {
-        setSelectedFile(event.target.files[0]);
-    };
-
-    const handleSubmit = async (event) => {
+    const postPhoto = async (event) => {
         event.preventDefault();
 
-        const formData = new FormData();
-        formData.append("photo", selectedFile);
-        formData.append("desc", description);
+        const photoData = {
+            photo: photoUrl,
+            desc: description,
+        };
 
         try {
             const response = await axios.post(
                 "https://love-pageapi.onrender.com/features/",
-                formData,
+                photoData,
                 {
                     headers: {
                         "Content-Type": "application/json",
@@ -34,6 +31,7 @@ function ModalGallery(props) {
             );
             console.log(response.data);
             props.onHide();
+            alert("Enviado com sucesso!");
         } catch (error) {
             console.error("Error:", error);
             alert("Erro / Auth error");
@@ -58,11 +56,13 @@ function ModalGallery(props) {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Form onSubmit={handleSubmit}>
+                <Form onSubmit={postPhoto}>
+                    <Form.Label>Photo URL</Form.Label>
                     <Form.Control
                         className="modal-gallery-file mb-3"
-                        type="file"
-                        onChange={handleFileChange}
+                        type="text"
+                        value={photoUrl}
+                        onChange={(e) => setPhotoUrl(e.target.value)}
                     />
 
                     <Form.Group
@@ -75,7 +75,7 @@ function ModalGallery(props) {
                             as="textarea"
                             rows={3}
                             value={description}
-                            onChange={(e) => setDescription(e.target.value)}
+                            onChange={(e) => setDesc(e.target.value)}
                         />
                     </Form.Group>
                     <Button

@@ -1,7 +1,11 @@
 import React from "react";
+
 import NavBar from "../../components/NavBar/NavBar";
 import { divStyle } from "../../components/BackgroundDiv/BackgroundDiv";
 import TitlePage from "../../components/TitlePage/TitlePage";
+import Photo from "../../components/Gallery/Photo";
+
+import "./Gallery.css";
 
 export default function Gallery() {
     return (
@@ -9,6 +13,9 @@ export default function Gallery() {
             <div style={divStyle}>
                 <NavBar />
                 <TitlePage name="Gallery" />
+                <div className="photos">
+                    <Photo />
+                </div>
             </div>
         </>
     );

@@ -34,16 +34,6 @@ function ModalNotes(props) {
             console.error("Error:", error);
             alert("Erro / Auth error");
         }
-        /* .then((data) => {
-                    console.log(data);
-                })
-                .then(() => {
-                    ModalNotes.hide();
-                });
-        } catch (error) {
-            console.error("Error:", error);
-            alert("Erro / Auth error");
-        } */
     };
 
     return (

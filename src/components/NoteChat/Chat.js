@@ -89,7 +89,7 @@ export default function Chat(props) {
                     onChange={(e) => setMessage(e.target.value)}
                 ></textarea>
                 <i
-                    class="fa-solid fa-arrow-right mx-2 fa-xl arrow"
+                    className="fa-solid fa-arrow-right mx-2 fa-xl arrow"
                     onClick={handleClick}
                 ></i>
             </div>
