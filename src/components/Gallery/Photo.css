@@ -57,7 +57,6 @@
 }
 
 .photo-desc {
-    position: relative;
     z-index: 3;
     color: white;
     opacity: 0;
@@ -69,4 +68,9 @@
 .photo-item:hover .photo-desc {
     opacity: 1;
     transform: translateY(0px);
+}
+
+.photo-alert{
+    font-size: 1.2em;
+    margin: 2% 0 0 10%;
 }

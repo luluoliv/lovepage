@@ -60,7 +60,7 @@ function Photo() {
                     </div>
                 ))
             ) : (
-                <p>No photos available</p>
+                <p className="photo-alert">Nenhuma foto adicionada</p>
             )}
         </div>
     );
