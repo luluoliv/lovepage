@@ -13,3 +13,8 @@
 .button:hover{
     background-color: #535353;
 }
+
+.delete{
+    margin-left: 10px;
+    cursor: pointer;
+}

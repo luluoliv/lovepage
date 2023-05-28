@@ -4,10 +4,13 @@
     grid-auto-rows: 90px;
     column-gap: 20px;
     row-gap: 20px;
-    overflow-y: scroll;
-    max-height: 300px;
-    padding-right: 40px;
-    padding-bottom: 100px;
+}
+
+.scroll-div{
+    padding: 20px;
+    width: 100%;
+    max-height: 580px;
+    overflow: auto;
 }
 
 .grid-item {
@@ -57,4 +60,17 @@
     left: 0;
     font-size: large;
     font-weight: 300;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #252525;
+    border-radius: 3px;
 }

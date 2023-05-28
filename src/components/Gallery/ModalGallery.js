@@ -6,24 +6,23 @@ import axios from "axios";
 import "./ModalGallery.css";
 
 function ModalGallery(props) {
-    const [photoUrl, setPhotoUrl] = useState("");
+    const [photoFile, setPhotoFile] = useState(null);
     const [description, setDesc] = useState("");
 
     const postPhoto = async (event) => {
         event.preventDefault();
 
-        const photoData = {
-            photo: photoUrl,
-            desc: description,
-        };
+        const formData = new FormData();
+        formData.append("photo", photoFile);
+        formData.append("desc", description);
 
         try {
             const response = await axios.post(
                 "https://love-pageapi.onrender.com/features/",
-                photoData,
+                formData,
                 {
                     headers: {
-                        "Content-Type": "application/json",
+                        "Content-Type": "multipart/form-data",
                         Authorization: "Token " + localStorage.getItem("token"),
                     },
                     withCredentials: true,
@@ -57,12 +56,10 @@ function ModalGallery(props) {
             </Modal.Header>
             <Modal.Body>
                 <Form onSubmit={postPhoto}>
-                    <Form.Label>Photo URL</Form.Label>
                     <Form.Control
                         className="modal-gallery-file mb-3"
-                        type="text"
-                        value={photoUrl}
-                        onChange={(e) => setPhotoUrl(e.target.value)}
+                        type="file"
+                        onChange={(e) => setPhotoFile(e.target.files[0])}
                     />
 
                     <Form.Group

@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, Button, Modal } from "react-bootstrap";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import "./ModalNotes.css";
@@ -8,6 +9,7 @@ import "./ModalNotes.css";
 function ModalNotes(props) {
     const [title, setTitle] = useState(false);
     const [user, setUser] = useState(false);
+    const navigate = useNavigate()
 
     const postNote = async () => {
         const data = {
@@ -30,9 +32,10 @@ function ModalNotes(props) {
             );
             props.onHide();
             alert("Enviado com sucesso!");
+            navigate("/notes");
         } catch (error) {
             console.error("Error:", error);
-            alert("Erro / Auth error");
+            alert("Erro / Auth error:"+error);
         }
     };
 

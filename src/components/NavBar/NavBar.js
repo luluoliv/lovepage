@@ -10,6 +10,10 @@ export default function NavBar() {
         fontSize: "1.3em",
     };
 
+    const handleClickLogout = () =>{
+        localStorage.clear()
+    }
+
     return (
         <nav
             style={NavBarStyle}
@@ -55,6 +59,9 @@ export default function NavBar() {
                         <i className="fa-solid fa-circle-user"></i>
                     </a>
                 </Link>
+                    <a href="/" className="fa-xl" onClick={handleClickLogout}>
+                        <i class="fa-solid fa-right-from-bracket" style={{ color: "grey"}}></i>
+                    </a>
             </div>
         </nav>
     );

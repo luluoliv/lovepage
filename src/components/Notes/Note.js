@@ -5,22 +5,31 @@ import "./Note.css";
 
 export default function Note(props) {
     const navigate = useNavigate();
-    function handleClick(note_id) {
-        localStorage.setItem("note_id", note_id);
+    function handleClick(item) {
+        localStorage.setItem("note_id", item.id);
+        localStorage.setItem("note_title", item.title);
+        localStorage.setItem("note_userid", item.user);
         navigate("/notechat");
     }
 
     const [notes, setNotes] = useState(null);
+    const [intervalId, setIntervalId] = useState(null);
 
     useEffect(() => {
-        axios
-            .get("https://love-pageapi.onrender.com/notes/")
-            .then((responseData) => {
-                setNotes(responseData.data);
-            })
-            .catch((err) => {
-                console.log(err);
+        const fetchData = async () => {
+            axios
+                .get("https://love-pageapi.onrender.com/notes/")
+                .then((responseData) => {
+                    setNotes(responseData.data);
+                })
+                .catch((err) => {
+                    console.log(err);
             });
+        }
+
+        fetchData()
+        const id = setInterval(fetchData, 5000)
+        return () => clearInterval(id)
     }, []);
 
     const handleStatusColor = (state) => {
@@ -33,23 +42,27 @@ export default function Note(props) {
 
     return (
         <>
+        <div className="scroll-div">    
             <div className="grid-container">
                 {notes
                     ? notes.map((item) => {
                           return (
                               <div
                                   className="grid-item"
-                                  onClick={() => handleClick(item.id)}
+                                  onClick={() => handleClick(item)}
                               >
                                   <div className="titulo">{item.title}</div>
                                   <div
                                       className={handleStatusColor(item.state)}
-                                  ></div>
+                                  >
+                                    
+                                  </div>
                               </div>
                           );
                       })
                     : null}
             </div>
+        </div>
         </>
     );
 }
