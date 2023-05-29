@@ -1,0 +1,15 @@
+.bottom-items {
+    position: fixed;
+    bottom: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.item{
+    color: #975454;
+    cursor: pointer;
+}
+
+.item:hover{
+    color: #bb6a6a;
+}

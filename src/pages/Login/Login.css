@@ -8,10 +8,16 @@
     height: 100%;
   }
   
-  .img-style {
-    position: absolute;
-    height: 75%;
-    left: 10%;
-    top: 18%;
-  }
+.img-style {
+  position: absolute;
+  height: 75%;
+  left: 10%;
+  top: 18%;
+}
   
+.button-container{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
