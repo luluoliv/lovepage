@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     justify-content: left;
     margin: 1% 5% 0 5%;
-    padding-bottom: 150px;
+    padding-bottom: 100px;
     height: auto;
     overflow: auto;
 }
@@ -24,7 +24,7 @@
 }
 
 .photo-item:hover {
-    transform: translateY(10px);
+    transform: translateY(5px);
 }
 
 .photo-item:before {
