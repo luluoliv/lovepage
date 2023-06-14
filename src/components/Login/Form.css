@@ -53,4 +53,10 @@
     outline: none;
 }
 
+.input-content::after {
+    display: none;
+  }
 
+.input-content::-ms-reveal {
+    display: none;
+}
