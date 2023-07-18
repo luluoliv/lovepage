@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import GetNotes from "../../hooks/Notes/GetNotes"; 
 import "./Note.css";
 
 export default function Note(props) {
     const navigate = useNavigate();
+
+    const { refresh, setRefresh } = props
+     
     function handleClick(item) {
         localStorage.setItem("note_id", item.id);
         localStorage.setItem("note_title", item.title);
@@ -15,22 +19,9 @@ export default function Note(props) {
     const [notes, setNotes] = useState(null);
     const [intervalId, setIntervalId] = useState(null);
 
-    //useEffect(() => {
-    //    const fetchData = async () => {
-    //        axios
-    //            .get("https://love-pageapi.onrender.com/notes/")
-    //            .then((responseData) => {
-    //                setNotes(responseData.data);
-    //            })
-    //            .catch((err) => {
-    //                console.log(err);
-    //        });
-    //    }
-    //
-    //    fetchData()
-    //    const id = setInterval(fetchData, 5000)
-    //    return () => clearInterval(id)
-    //}, []);
+    useEffect(() => {
+        GetNotes({ setNotes, setRefresh });
+      }, [refresh, setNotes, setRefresh]);
 
     const handleStatusColor = (state) => {
         if (state === "0") {
@@ -42,27 +33,27 @@ export default function Note(props) {
 
     return (
         <>
-        <div className="scroll-div">    
-            <div className="grid-container">
-                {notes
-                    ? notes.map((item) => {
-                          return (
-                              <div
-                                  className="grid-item"
-                                  onClick={() => handleClick(item)}
-                              >
-                                  <div className="titulo">{item.title}</div>
+            <div className="scroll-div">    
+                <div className="grid-container">
+                    {notes
+                        ? notes.map((item) => {
+                              return (
                                   <div
-                                      className={handleStatusColor(item.state)}
+                                      className="grid-item"
+                                      onClick={() => handleClick(item)}
                                   >
-                                    
+                                      <div className="titulo">{item.title}</div>
+                                      <div
+                                          className={handleStatusColor(item.state)}
+                                      >
+
+                                      </div>
                                   </div>
-                              </div>
-                          );
-                      })
-                    : null}
+                              );
+                          })
+                        : null}
+                </div>
             </div>
-        </div>
         </>
     );
 }

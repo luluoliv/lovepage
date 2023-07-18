@@ -6,12 +6,15 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 
+import PostNote from "../../hooks/Notes/PostNotes";
 import "./ModalNotes.css";
 
 function ModalNotes(props) {
     const [title, setTitle] = useState(false);
     const [user, setUser] = useState(false);
     const navigate = useNavigate()
+
+    const { refresh, setRefresh } = props
 
     const notify = (isSucess, msg) => {
         if(isSucess){
@@ -38,35 +41,19 @@ function ModalNotes(props) {
             });
         }
     }
-
         
 
     const postNote = async () => {
-        const data = {
+        
+        await PostNote({
             title: title,
             state: "0",
             user: localStorage.getItem("user_id"),
-        };
+            setRefresh: setRefresh,
+            notify: notify
+        })
 
-        try {
-            await axios.post(
-                "https://love-pageapi.onrender.com/notes/",
-                JSON.stringify(data),
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                        Authorization: "Token " + localStorage.getItem("token"),
-                    },
-                    withCredentials: true,
-                }
-            );
-            props.onHide();
-            notify(true)
-        } catch (error) {
-            console.error("Error:", error);
-            notify(false, error)
-            props.onHide();
-        }
+        props.onHide()
     };
 
     return (
@@ -103,33 +90,6 @@ function ModalNotes(props) {
                                     setTitle(e.target.value);
                                 }}
                                 rows={1}
-                            />
-                        </Form.Group>
-                        <Form.Label>User</Form.Label>
-                        <Form.Group
-                            className="mb-3 row-flex"
-                            controlId="exampleForm.ControlTextarea1"
-                        >
-                            <Form.Check
-                                inline
-                                label="Guizen"
-                                name="group1"
-                                value={"Guilherme"}
-                                type="radio"
-                                onChange={(e) => {
-                                    setUser(e.target.value);
-                                }}
-                            />
-                            <Form.Check
-                                inline
-                                label="Lulu"
-                                name="group1"
-                                value={"Luara"}
-                                radio
-                                type="radio"
-                                onChange={(e) => {
-                                    setUser(e.target.value);
-                                }}
                             />
                         </Form.Group>
                         <Button

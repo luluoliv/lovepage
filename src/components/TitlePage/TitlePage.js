@@ -6,6 +6,7 @@ import ModalNotes from "../../components/Notes/ModalNotes";
 
 function TitlePage(props) {
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const {refresh, setRefresh} = props
 
     function openModal() {
         setModalIsOpen(true);
@@ -27,7 +28,7 @@ function TitlePage(props) {
             {props.name === "Gallery" ? (
                 <ModalGallery show={modalIsOpen} onHide={closeModal} />
             ) : props.name === "Reclamações" ? (
-                <ModalNotes show={modalIsOpen} onHide={closeModal} />
+                <ModalNotes show={modalIsOpen} onHide={closeModal} refresh={refresh} setRefresh={setRefresh}/>
             ) : null}
         </>
     );

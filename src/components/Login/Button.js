@@ -52,19 +52,6 @@ function FormsButton(props) {
                     <span>{props.name}</span>
                 </button>
             )}
-            {loading ? (
-                <div className="loading-div">
-                    <Hearts 
-                        height="80"
-                        width="80"
-                        color="red"
-                        ariaLabel="hearts-loading"
-                        wrapperStyle
-                        wrapperClass
-                        visible={true}
-                    />
-                </div>
-            ): null}
         </>
     );
 }
