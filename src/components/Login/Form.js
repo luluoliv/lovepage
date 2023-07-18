@@ -12,6 +12,10 @@ function LoginForm(props) {
     const [selectedOption, setSelectedOption] = useState('');
     const [password, setPassword] = useState('')
 
+    const { loading, setLoading } = props
+    const { toastState, setToastState } = props
+
+
     const toggleShowPassword = () => setShowPassword((prev) => !prev);
 
     const toggleValidUser = () =>{
@@ -90,9 +94,13 @@ function LoginForm(props) {
                     ></i> 
                 </Form.Group>
                 <FormsButton
-                name={"Logar"}
-                username={selectedOption ? selectedOption : 'Visitante'}
-                password={password ? password : ''}
+                    name={"Logar"}
+                    username={selectedOption ? selectedOption : 'Visitante'}
+                    password={password ? password : ''}
+                    loading={loading}
+                    setLoading={setLoading}
+                    toastState={toastState}
+                    setToastState={setToastState}
                 />
             </Form>
         </Card>

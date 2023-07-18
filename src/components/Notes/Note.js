@@ -15,22 +15,22 @@ export default function Note(props) {
     const [notes, setNotes] = useState(null);
     const [intervalId, setIntervalId] = useState(null);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            axios
-                .get("https://love-pageapi.onrender.com/notes/")
-                .then((responseData) => {
-                    setNotes(responseData.data);
-                })
-                .catch((err) => {
-                    console.log(err);
-            });
-        }
-
-        fetchData()
-        const id = setInterval(fetchData, 5000)
-        return () => clearInterval(id)
-    }, []);
+    //useEffect(() => {
+    //    const fetchData = async () => {
+    //        axios
+    //            .get("https://love-pageapi.onrender.com/notes/")
+    //            .then((responseData) => {
+    //                setNotes(responseData.data);
+    //            })
+    //            .catch((err) => {
+    //                console.log(err);
+    //        });
+    //    }
+    //
+    //    fetchData()
+    //    const id = setInterval(fetchData, 5000)
+    //    return () => clearInterval(id)
+    //}, []);
 
     const handleStatusColor = (state) => {
         if (state === "0") {

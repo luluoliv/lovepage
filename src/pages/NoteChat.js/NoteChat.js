@@ -6,10 +6,26 @@ import "./NoteChat.css";
 import Chat from "../../components/NoteChat/Chat";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Form, Button, Modal } from "react-bootstrap";
 
 export default function NoteChat(props) {
     const [note, setNote] = useState();
     const navigate = useNavigate();
+
+    const notify = () => {
+        toast.success('Deletado com sucesso', {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        })
+    }
 
     useEffect(() => {
         axios
@@ -44,7 +60,16 @@ export default function NoteChat(props) {
                     setNote(responseData.data);
                 })
                 .then(()=>{
-                    alert('Deletado com sucesso!')
+                    toast.success('Deletado com sucesso', {
+                        position: "top-center",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "dark",
+                    })
                 })
                 .then(() =>{
                     navigate("/notes");
@@ -100,9 +125,9 @@ export default function NoteChat(props) {
             <NavBar />
             <div className="chat-container">
                 <h2>{note ? note.title : "Carregando..."}</h2>
-                <button className="button" onClick={handleResolvido}>Marcar como Resolvido</button>
-                <i className="fa-regular fa-trash-can fa-xl delete" onClick={handleDeleteClick}></i>
                 <Chat />
+                <button className="button bottom" onClick={handleResolvido}>Marcar como Resolvido</button>
+                <i className="fa-regular fa-trash-can fa-xl delete bottom" onClick={handleDeleteClick}></i>
             </div>
         </div>
     );

@@ -1,5 +1,7 @@
 .chat-container{
     padding: 0px 25% 0px 25%;
+    display: relative;
+    height: 100%;
 }
 
 .button{

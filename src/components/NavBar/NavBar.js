@@ -54,7 +54,7 @@ export default function NavBar() {
                         <i className="fa-solid fa-note-sticky"></i>
                     </a>
                 </Link>
-                <Link to={"/"} className="nav-item navbar-nav fa-xl">
+                <Link to={"/aboutus"} className="nav-item navbar-nav fa-xl">
                     <a className="nav-link disabled" href="/">
                         <i className="fa-solid fa-circle-user"></i>
                     </a>

@@ -15,3 +15,10 @@
     background-color: #bb6a6a;
     color: #ffffff;
 }
+
+.loading-div{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

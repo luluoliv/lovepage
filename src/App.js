@@ -8,6 +8,7 @@ import Notes from "./pages/Notes/Notes";
 import Gallery from "./pages/Gallery/Gallery";
 import NoteChat from "./pages/NoteChat.js/NoteChat";
 import Games from "./pages/Games/Games";
+import AboutUs from "./pages/AboutUs/AboutUs"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
        <Route path="/gallery" element={<Gallery />} />
        <Route path="/notechat" element={<NoteChat />} />
       <Route path='/games' element={<Games />}  />
+      <Route path='/aboutus' element={<AboutUs />}  />
       {/* <Route path='/movies' element={<Home />}  />
       <Route path='/places' element={<Home />}  /> */}
         </Routes>
