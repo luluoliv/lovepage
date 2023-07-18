@@ -12,7 +12,7 @@ export default function Gallery() {
         <>
             <div style={divStyle}>
                 <NavBar />
-                <TitlePage name="Gallery" />
+                <TitlePage name="Galeria" />
                 <div className="photos">
                     <Photo />
                 </div>

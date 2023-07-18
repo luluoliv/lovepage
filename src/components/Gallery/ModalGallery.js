@@ -51,7 +51,7 @@ function ModalGallery(props) {
                 closeVariant="white"
             >
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Add photo
+                    Adicionar foto
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -66,7 +66,7 @@ function ModalGallery(props) {
                         className="mb-3"
                         controlId="exampleForm.ControlTextarea1"
                     >
-                        <Form.Label>Description</Form.Label>
+                        <Form.Label>Descrição</Form.Label>
                         <Form.Control
                             className="modal-gallery-textarea"
                             as="textarea"
@@ -80,7 +80,7 @@ function ModalGallery(props) {
                         variant="outline-dark"
                         type="submit"
                     >
-                        Upload
+                        Enviar
                     </Button>
                 </Form>
             </Modal.Body>

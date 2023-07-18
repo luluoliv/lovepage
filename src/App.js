@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import React from 'react';
+import React from "react";
 
 import "./App.css";
 import Login from "./pages/Login/Login";
@@ -8,20 +8,22 @@ import Notes from "./pages/Notes/Notes";
 import Gallery from "./pages/Gallery/Gallery";
 import NoteChat from "./pages/NoteChat.js/NoteChat";
 import Games from "./pages/Games/Games";
-import AboutUs from "./pages/AboutUs/AboutUs"
+import AboutUs from "./pages/AboutUs/AboutUs";
+import Places from "./pages/Places/Places";
+import Movies from "./pages/Movies/Movies";
 
 function App() {
-  return (
-    <Routes>
-      <Route path='/' element={<Login />} />
-      <Route path='/home' element={<Home />} />
-      <Route path='/notes' element={<Notes />} />
-       <Route path="/gallery" element={<Gallery />} />
-       <Route path="/notechat" element={<NoteChat />} />
-      <Route path='/games' element={<Games />}  />
-      <Route path='/aboutus' element={<AboutUs />}  />
-      {/* <Route path='/movies' element={<Home />}  />
-      <Route path='/places' element={<Home />}  /> */}
+    return (
+        <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/notes" element={<Notes />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/notechat" element={<NoteChat />} />
+            <Route path="/games" element={<Games />} />
+            <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/movies" element={<Movies />} />
+            <Route path="/places" element={<Places />} />
         </Routes>
     );
 }
