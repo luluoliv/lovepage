@@ -1,3 +1,4 @@
+
 import TitlePage from "../../components/TitlePage/TitlePage";
 import NavBar from "../../components/NavBar/NavBar";
 import { divStyle } from "../../components/BackgroundDiv/BackgroundDiv";

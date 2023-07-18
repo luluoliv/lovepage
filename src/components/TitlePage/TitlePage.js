@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./TitlePage.css";
 import ModalGallery from "../../components/Gallery/ModalGallery";
 import ModalNotes from "../../components/Notes/ModalNotes";
+import ModalMovies from "../../components/Movies/ModalMovies";
 
 function TitlePage(props) {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -25,7 +26,7 @@ function TitlePage(props) {
                 </button>
             </div>
 
-            {props.name === "Gallery" ? (
+            {props.name === "Galeria" ? (
                 <ModalGallery show={modalIsOpen} onHide={closeModal} />
             ) : props.name === "Reclamações" ? (
                 <ModalNotes show={modalIsOpen} onHide={closeModal} refresh={refresh} setRefresh={setRefresh}/>

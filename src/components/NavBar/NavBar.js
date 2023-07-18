@@ -55,7 +55,7 @@ export default function NavBar() {
                     </a>
                 </Link>
                 <Link to={"/aboutus"} className="nav-item navbar-nav fa-xl">
-                    <a className="nav-link disabled" href="/">
+                    <a className="nav-link" href="/">
                         <i className="fa-solid fa-circle-user"></i>
                     </a>
                 </Link>

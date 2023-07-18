@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Button, Modal } from "react-bootstrap";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -73,7 +73,7 @@ function ModalNotes(props) {
                     closeVariant="white"
                 >
                     <Modal.Title id="contained-modal-title-vcenter">
-                        Add Note
+                        Adicionar reclamação
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -82,7 +82,7 @@ function ModalNotes(props) {
                             className="mb-3"
                             controlId="exampleForm.ControlTextarea1"
                         >
-                            <Form.Label>Title</Form.Label>
+                            <Form.Label>Título</Form.Label>
                             <Form.Control
                                 className="modal-note-textarea"
                                 as="textarea"
@@ -97,7 +97,7 @@ function ModalNotes(props) {
                             variant="outline-dark"
                             onClick={postNote}
                         >
-                            Submit
+                            Enviar
                         </Button>
                     </Form>
                 </Modal.Body>
