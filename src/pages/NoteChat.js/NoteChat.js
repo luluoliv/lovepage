@@ -104,9 +104,10 @@ export default function NoteChat(props) {
             <NavBar />
             <div className="chat-container">
                 <h2>{note ? note.title : "Carregando..."}</h2>
-                <Chat />
-                <button className="button bottom" onClick={openModal}> Marcar como Resolvido </button>
-                <i className="fa-regular fa-trash-can fa-xl delete bottom" onClick={openDeleteModal}></i>
+                <Chat
+                    openModal={openModal}
+                    openDeleteModal={openDeleteModal}
+                 />
             </div>
         </div>
     );
