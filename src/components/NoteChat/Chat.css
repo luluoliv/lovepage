@@ -3,6 +3,12 @@
     flex-direction: row;
 }
 
+.fix-items-bottom{
+    position: fixed;
+    bottom: 20px;
+    margin-bottom: 20px;
+}
+
 .sent-content{
     display: flex;
     flex-direction: row-reverse;
@@ -51,8 +57,6 @@ span{
     height: auto;
     padding: 15px;
     padding-bottom: 0;
-    padding: 15px;
-    padding-bottom: 0;
     border-radius: 15px;
     resize: none;
     box-sizing: border-box;
@@ -88,7 +92,7 @@ span{
     margin-top: 5px;
     padding: 20px;
     width: 100%;
-    height: 100%;
+    height: 55vh;
     overflow: auto;
     margin-bottom: 10px;
 }

@@ -1,38 +1,42 @@
 import React, { useState } from "react";
-
 import "./TitlePage.css";
 import ModalGallery from "../../components/Gallery/ModalGallery";
 import ModalNotes from "../../components/Notes/ModalNotes";
 import ModalMovies from "../../components/Movies/ModalMovies";
 
 function TitlePage(props) {
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-    const {refresh, setRefresh} = props
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const { name, refresh, setRefresh } = props;
 
-    function openModal() {
-        setModalIsOpen(true);
+  const openModal = () => setModalIsOpen(true);
+  const closeModal = () => setModalIsOpen(false);
+
+  const getModalComponent = () => {
+    switch (name) {
+      case "Galeria":
+        return <ModalGallery show={modalIsOpen} onHide={closeModal} />;
+      case "Reclamações":
+        return (
+          <ModalNotes show={modalIsOpen} onHide={closeModal} refresh={refresh} setRefresh={setRefresh} />
+        );
+      case "Filmes":
+        return <ModalMovies show={modalIsOpen} onHide={closeModal} />;
+      default:
+        return null;
     }
+  };
 
-    function closeModal() {
-        setModalIsOpen(false);
-    }
-
-    return (
-        <>
-            <div className="content">
-                <h2 className="title">{props.name}</h2>
-                <button className="btn-modal" onClick={openModal}>
-                    <span className="btn-plus">+</span>
-                </button>
-            </div>
-
-            {props.name === "Galeria" ? (
-                <ModalGallery show={modalIsOpen} onHide={closeModal} />
-            ) : props.name === "Reclamações" ? (
-                <ModalNotes show={modalIsOpen} onHide={closeModal} refresh={refresh} setRefresh={setRefresh}/>
-            ) : null}
-        </>
-    );
+  return (
+    <>
+      <div className="content">
+        <h2 className="title">{name}</h2>
+        <button className="btn-modal" onClick={openModal}>
+          <span className="btn-plus">+</span>
+        </button>
+      </div>
+      {getModalComponent()}
+    </>
+  );
 }
 
 export default TitlePage;

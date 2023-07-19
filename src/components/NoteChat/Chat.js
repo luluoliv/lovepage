@@ -13,22 +13,22 @@ export default function Chat(props) {
     useEffect(() => {
         GetNoteChatMsg({
             note_id: note_id,
-            setChatMessages: setChatMessages
-        })
+            setChatMessages: setChatMessages,
+        });
+    }, [chatMessages, setChatMessages, note_id]);
 
-    }, [setChatMessages]);
+    //console.log(chatMessages)
 
     const handleClick = async () => {
-
         await PostNoteChats({
             note_id: note_id,
             user: localStorage.getItem("user_id"),
             message: message,
             setChatMessages: setChatMessages,
-            notify: Notify
-        })
+            notify: Notify,
+        });
 
-        setMessage("")
+        setMessage("");
     };
 
     function handleClassName(user) {
@@ -41,24 +41,36 @@ export default function Chat(props) {
 
     return (
         <>
-
-
             {chatMessages ? (
-                chatMessages === "" ? (
+                chatMessages === undefined || chatMessages.length === 0 ? (
                     <>
                         <div className="first-message mt-4">
                             <span>Adicione a primeira mensagem.</span>
                             <div className="text-div mt-4"></div>
                         </div>
-                        <div className="text-div mt-4 mb-4">
-                            <textarea
-                                className="response-inp sent-content"
-                                placeholder="Mensagem"
-                                onChange={(e) => setMessage(e.target.value)}
-                            ></textarea>
+                        <div className="fix-items-bottom">
+                            <div className="text-div mt-4 mb-4">
+                                <textarea
+                                    className="response-inp sent-content"
+                                    placeholder="Mensagem"
+                                    value={message}
+                                    onChange={(e) => setMessage(e.target.value)}
+                                ></textarea>
+                                <i
+                                    class="fa-solid fa-arrow-right mx-2 fa-xl arrow"
+                                    onClick={handleClick}
+                                ></i>
+                            </div>
+                            <button
+                                className="button "
+                                onClick={props.openModal}
+                            >
+                                {" "}
+                                Marcar como Resolvido{" "}
+                            </button>
                             <i
-                                class="fa-solid fa-arrow-right mx-2 fa-xl arrow"
-                                onClick={handleClick}
+                                className="fa-regular fa-trash-can fa-xl delete "
+                                onClick={props.openDeleteModal}
                             ></i>
                         </div>
                     </>
@@ -83,16 +95,29 @@ export default function Chat(props) {
                                 );
                             })}
                         </div>
-                        <div className="text-div mt-4 mb-4">
-                            <textarea
-                                className="response-inp sent-content"
-                                placeholder="Mensagem"
-                                value={message}
-                                onChange={(e) => setMessage(e.target.value)}
-                            ></textarea>
+                        <div className="fix-items-bottom">
+                            <div className="text-div mt-4 mb-4">
+                                <textarea
+                                    className="response-inp sent-content"
+                                    placeholder="Mensagem"
+                                    value={message}
+                                    onChange={(e) => setMessage(e.target.value)}
+                                ></textarea>
+                                <i
+                                    class="fa-solid fa-arrow-right mx-2 fa-xl arrow"
+                                    onClick={handleClick}
+                                ></i>
+                            </div>
+                            <button
+                                className="button "
+                                onClick={props.openModal}
+                            >
+                                {" "}
+                                Marcar como Resolvido{" "}
+                            </button>
                             <i
-                                class="fa-solid fa-arrow-right mx-2 fa-xl arrow"
-                                onClick={handleClick}
+                                className="fa-regular fa-trash-can fa-xl delete "
+                                onClick={props.openDeleteModal}
                             ></i>
                         </div>
                     </>

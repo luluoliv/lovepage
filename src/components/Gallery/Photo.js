@@ -7,7 +7,6 @@ import "./../../components/Gallery/Photo.css";
 function Photo() {
     const [photos, setPhotos] = useState([]);
 
-
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -39,10 +38,14 @@ function Photo() {
         setHoveredPhotoId(null);
     };
 
+    const comparePhotosById = (photoA, photoB) => {
+        return photoB.id - photoA.id;
+    };
+
     return (
         <div className="photo-gallery">
             {photos && photos.length > 0 ? (
-                photos.map((photo) => (
+                photos.sort(comparePhotosById).map((photo) => (
                     <div
                         key={photo.id}
                         className="photo-item"
