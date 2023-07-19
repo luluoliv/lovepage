@@ -20,3 +20,8 @@
     margin-left: 10px;
     cursor: pointer;
 }
+
+.bottom-fixed-items{
+    display: flex;
+    height: 100%;
+}

@@ -13,22 +13,23 @@ export default function Chat(props) {
     useEffect(() => {
         GetNoteChatMsg({
             note_id: note_id,
-            setChatMessages: setChatMessages,
-        });
+            setChatMessages: setChatMessages
+        })
     }, [chatMessages, setChatMessages, note_id]);
 
     //console.log(chatMessages)
 
     const handleClick = async () => {
+
         await PostNoteChats({
             note_id: note_id,
             user: localStorage.getItem("user_id"),
             message: message,
             setChatMessages: setChatMessages,
-            notify: Notify,
-        });
+            notify: Notify
+        })
 
-        setMessage("");
+        setMessage("")
     };
 
     function handleClassName(user) {
@@ -61,17 +62,8 @@ export default function Chat(props) {
                                     onClick={handleClick}
                                 ></i>
                             </div>
-                            <button
-                                className="button "
-                                onClick={props.openModal}
-                            >
-                                {" "}
-                                Marcar como Resolvido{" "}
-                            </button>
-                            <i
-                                className="fa-regular fa-trash-can fa-xl delete "
-                                onClick={props.openDeleteModal}
-                            ></i>
+                            <button className="button " onClick={props.openModal}> Marcar como Resolvido </button>
+                            <i className="fa-regular fa-trash-can fa-xl delete " onClick={props.openDeleteModal}></i>
                         </div>
                     </>
                 ) : (
@@ -108,17 +100,8 @@ export default function Chat(props) {
                                     onClick={handleClick}
                                 ></i>
                             </div>
-                            <button
-                                className="button "
-                                onClick={props.openModal}
-                            >
-                                {" "}
-                                Marcar como Resolvido{" "}
-                            </button>
-                            <i
-                                className="fa-regular fa-trash-can fa-xl delete "
-                                onClick={props.openDeleteModal}
-                            ></i>
+                            <button className="button " onClick={props.openModal}> Marcar como Resolvido </button>
+                            <i className="fa-regular fa-trash-can fa-xl delete " onClick={props.openDeleteModal}></i>
                         </div>
                     </>
                 )
