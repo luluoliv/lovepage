@@ -1,47 +1,19 @@
 import React from "react";
 import { Form, Button, Modal } from "react-bootstrap";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import axios from "axios";
+import { ToastContainer } from 'react-toastify';
+import { Notify } from "../../utils/Notify";
 
 import PostNote from "../../hooks/Notes/PostNotes";
+
+import 'react-toastify/dist/ReactToastify.css';
 import "./ModalNotes.css";
+
 
 function ModalNotes(props) {
     const [title, setTitle] = useState(false);
-    const [user, setUser] = useState(false);
-    const navigate = useNavigate()
 
-    const { refresh, setRefresh } = props
-
-    const notify = (isSucess, msg) => {
-        if(isSucess){
-            toast.success('Criado com sucesso', {
-                position: "top-center",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-            });;     
-        }else{
-            toast.error('Error: '+msg, {
-                position: "top-center",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-            });
-        }
-    }
-        
+    const { refresh, setRefresh } = props        
 
     const postNote = async () => {
         
@@ -50,7 +22,7 @@ function ModalNotes(props) {
             state: "0",
             user: localStorage.getItem("user_id"),
             setRefresh: setRefresh,
-            notify: notify
+            notify: Notify
         })
 
         props.onHide()

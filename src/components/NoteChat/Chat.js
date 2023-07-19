@@ -1,7 +1,9 @@
 import React from "react";
 import "./Chat.css";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import GetNoteChatMsg from "../../hooks/NoteChats/GetNoteChatMsg";
+import { Notify } from "../../utils/Notify";
+import PostNoteChats from "../../hooks/NoteChats/PostNoteChats";
 
 export default function Chat(props) {
     const note_id = localStorage.getItem("note_id");
@@ -9,19 +11,27 @@ export default function Chat(props) {
     const [message, setMessage] = useState("");
 
     useEffect(() => {
-        axios
-            .get(
-                "https://love-pageapi.onrender.com/notes/chats/note/" + note_id
-            )
-            .then((responseData) => {
-                setChatMessages(responseData.data);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    }, []);
+        GetNoteChatMsg({
+            note_id: note_id,
+            setChatMessages: setChatMessages
+        })
 
-    function className(user) {
+    }, [setChatMessages]);
+
+    const handleClick = async () => {
+
+        await PostNoteChats({
+            note_id: note_id,
+            user: localStorage.getItem("user_id"),
+            message: message,
+            setChatMessages: setChatMessages,
+            notify: Notify
+        })
+
+        setMessage("")
+    };
+
+    function handleClassName(user) {
         if (user == localStorage.getItem("user_id")) {
             return "sent-content mt-5";
         } else {
@@ -29,51 +39,10 @@ export default function Chat(props) {
         }
     }
 
-    const handleClick = async () => {
-        //console.log(localStorage.getItem('note_id'))
-        //console.log(message)
-
-        const data = {
-            reclamacao: note_id,
-            user: localStorage.getItem("user_id"),
-            message: message,
-        };
-
-        //setChatMessages(data)
-        console.log(chatMessages);
-        
-        const clearTextarea = () =>{
-            setMessage("")
-        }
-
-        await axios
-            .post(
-                "https://love-pageapi.onrender.com/notes/chats/",
-                JSON.stringify(data),
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                        Authorization: "Token " + localStorage.getItem("token"),
-                    },
-                    withCredentials: true,
-                }
-            )
-            .then((response) => {
-                setChatMessages((prevChatMessages) => [
-                    ...prevChatMessages,
-                    data,
-                ]);
-                clearTextarea();
-            })
-            .catch((err) => {
-                console.log(err);
-                alert("Erro / Auth error");
-            });
-    };
-
-
     return (
         <>
+
+
             {chatMessages ? (
                 chatMessages === "" ? (
                     <>
@@ -98,7 +67,7 @@ export default function Chat(props) {
                         <div className="scroll-div">
                             {chatMessages.map((item) => {
                                 return (
-                                    <div className={className(item.user)}>
+                                    <div className={handleClassName(item.user)}>
                                         <div className="usuario">
                                             <i className="fa-solid fa-circle-user fa-4x"></i>
                                             <span className="nome">

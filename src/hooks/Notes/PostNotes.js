@@ -20,9 +20,9 @@ export default async function PostNote(props){
             }
         );
         props.setRefresh(true)
-        props.notify(true)
+        props.notify(true, 'Criado com sucesso')
     } catch (error) {
         console.error("Error:", error);
-        props.notify(false, error)
+        props.notify(false, 'Erro: ação somente para admins')
     }
 };

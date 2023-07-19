@@ -1,133 +1,112 @@
 import React from "react";
-import { divStyle } from "../../components/BackgroundDiv/BackgroundDiv";
+import { useState, useEffect } from "react";
+
+import Chat from "../../components/NoteChat/Chat";
 import NavBar from "../../components/NavBar/NavBar";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+
+//utils
+import YesNoModal from "../../utils/YesNoModal";
+import { Notify } from "../../utils/Notify";
+
+//hooks
+import PutNoteChat from "../../hooks/NoteChats/PutNoteChats";
+import DeleteNoteChat from "../../hooks/NoteChats/DeleteNoteChat";
+import GetNoteChatTitle from "../../hooks/NoteChats/GetNoteChatTitle";
+
+//css
+import { divStyle } from "../../components/BackgroundDiv/BackgroundDiv";
 import "./NoteChat.css";
-import Chat from "../../components/NoteChat/Chat";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Form, Button, Modal } from "react-bootstrap";
+
 
 export default function NoteChat(props) {
     const [note, setNote] = useState();
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [deleteModalIsOpen, setDeleteModalIsOpen] = useState(false);
     const navigate = useNavigate();
 
-    const notify = () => {
-        toast.success('Deletado com sucesso', {
-            position: "top-center",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-        })
+    function openModal() {
+        setModalIsOpen(true);
+    }
+
+    function openDeleteModal(){
+        setDeleteModalIsOpen(true);
+    }
+
+    function closeModal() {
+        setModalIsOpen(false);
+    }
+
+    function closeDeleteModal(){
+        setDeleteModalIsOpen(false);
     }
 
     useEffect(() => {
-        axios
-            .get(
-                "https://love-pageapi.onrender.com/notes/" +
-                    localStorage.getItem("note_id")
-            )
-            .then((responseData) => {
-                setNote(responseData.data);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    }, []);
+
+        GetNoteChatTitle({
+            note_id: localStorage.getItem("note_id"),
+            setNote: setNote
+        })
+
+    }, [setNote]);
 
     const handleDeleteClick = async () =>{
-
-        if (window.confirm("Tem certeza que deseja deletar essa reclamação?")) {
-            await axios
-                .delete(
-                    "https://love-pageapi.onrender.com/notes/"+
-                    localStorage.getItem("note_id"),
-                    {
-                        headers: {
-                            "Content-Type": "application/json",
-                            Authorization: "Token " + localStorage.getItem("token"),
-                        },
-                        withCredentials: true,
-                    }
-                )
-                .then((responseData) => {
-                    setNote(responseData.data);
-                })
-                .then(()=>{
-                    toast.success('Deletado com sucesso', {
-                        position: "top-center",
-                        autoClose: 2000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: false,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "dark",
-                    })
-                })
-                .then(() =>{
-                    navigate("/notes");
-                })
-                .catch((err) => {
-                    console.log(err);
-                    alert('Error / Auth error')
-                });
+        try{
+            await DeleteNoteChat({
+                setNote: setNote,
+                notify: Notify
+            })
+            closeDeleteModal()
+            setTimeout(() => {
+                navigate('/notes')
+            }, 3000);
+        }catch{
+            closeDeleteModal()
         }
 
     }
 
     const handleResolvido = async () =>{
-
-        const data = {
-            user: localStorage.getItem('note_userid'),
-            title: localStorage.getItem('note_title'),
-            state: '1'
-        }
-
-        if (window.confirm("Tem certeza que quer marcar essa reclamação como resolvida?")) {
-            await axios
-                .put(
-                    "https://love-pageapi.onrender.com/notes/"+
-                    localStorage.getItem("note_id")+'/',
-                    data,
-                    {
-                        headers: {
-                            "Content-Type": "application/json",
-                            Authorization: "Token " + localStorage.getItem("token"),
-                        },
-                        withCredentials: true,
-                    }
-                )
-                .then((responseData) => {
-                    setNote(responseData.data);
-                })
-                .then(()=>{
-                    alert('Reclamação resolvida, parabéns!')
-                })
-                .then(() =>{
-                    navigate("/notes");
-                })
-                .catch((err) => {
-                    console.log(err);
-                    alert('Error / Auth error')
-            });
+        try{
+            await PutNoteChat({
+                setNote: setNote,
+                notify: Notify
+            })
+            closeModal()
+            setTimeout(() => {
+                navigate('/notes')
+            }, 3000);
+        }catch{
+            closeModal()
         }
     }
 
     return (
         <div style={divStyle}>
+            <ToastContainer />
+            <YesNoModal 
+                show={modalIsOpen} 
+                onHide={closeModal}
+                msg={'Tem certeza que deseja marcar como resolvido?'} 
+                yes={handleResolvido}
+                no={closeModal}
+            />
+            <YesNoModal 
+                show={deleteModalIsOpen} 
+                onHide={closeDeleteModal}
+                msg={'Tem certeza que deseja deletar essa reclamação?'} 
+                yes={handleDeleteClick}
+                no={closeDeleteModal}
+            />
+
             <NavBar />
             <div className="chat-container">
                 <h2>{note ? note.title : "Carregando..."}</h2>
                 <Chat />
-                <button className="button bottom" onClick={handleResolvido}>Marcar como Resolvido</button>
-                <i className="fa-regular fa-trash-can fa-xl delete bottom" onClick={handleDeleteClick}></i>
+                <button className="button bottom" onClick={openModal}> Marcar como Resolvido </button>
+                <i className="fa-regular fa-trash-can fa-xl delete bottom" onClick={openDeleteModal}></i>
             </div>
         </div>
     );
