@@ -1,3 +1,4 @@
+
 .content {
     display: flex;
     align-items: center;
@@ -16,7 +17,7 @@
     border-radius: 100px;
 }
 
-.btn-plus {
+.btn-plus{
     color: #252525;
     font-size: 2em;
 }
@@ -28,3 +29,4 @@
     border-radius: 50px;
     border: none;
 }
+
