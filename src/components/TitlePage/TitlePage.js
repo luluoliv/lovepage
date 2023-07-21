@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./TitlePage.css";
+
 import ModalGallery from "../../components/Gallery/ModalGallery";
 import ModalNotes from "../../components/Notes/ModalNotes";
 import ModalMovies from "../../components/Movies/ModalMovies";

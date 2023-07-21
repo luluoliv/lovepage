@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+.modal-photo-content {
+    margin: 0;
+    padding: 0;
+}
+
 .modal-photo-img {
     width: 100%;
     height: 100%;
@@ -17,4 +22,13 @@
     left: 0;
     right: 0;
     margin: 0;
+}
+
+.close-modal-btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    font-size: 1.2em;
+    color: white;
 }
