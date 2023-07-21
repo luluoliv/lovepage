@@ -3,29 +3,22 @@
     align-items: center;
     justify-items: center;
     flex-direction: row;
-    gap: 1.5%;
+    gap: 1%;
 }
 
 .title {
     font-weight: 500;
-    margin-left: 10%;
+    margin-left: 5%;
 }
 
 .btn-modal {
-    position: relative;
-
     background: transparent;
-    border: 2px #252525 solid;
     border-radius: 100px;
-    height: 40px;
-    width: 40px;
 }
 
 .btn-plus {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    color: #252525;
+    font-size: 2em;
 }
 
 .modal-content {
