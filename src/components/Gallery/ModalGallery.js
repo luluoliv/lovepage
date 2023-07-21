@@ -10,11 +10,15 @@ import "./ModalGallery.css";
 function ModalGallery(props) {
     const [photoFile, setPhotoFile] = useState(null);
     const [desc, setDesc] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
     const postPhoto = async () => {
+        setIsLoading(true)
+
         await PostPhoto({
             photo: photoFile,
             desc: desc,
+            setIsLoading: setIsLoading,
             notify: Notify,
         });
 
@@ -65,8 +69,9 @@ function ModalGallery(props) {
                             className="modal-gallery-btn"
                             variant="outline-dark"
                             type="submit"
+                            disabled={isLoading}
                         >
-                            Enviar
+                            {isLoading ? 'Enviando...' : 'Enviar'}
                         </Button>
                     </Form>
                 </Modal.Body>

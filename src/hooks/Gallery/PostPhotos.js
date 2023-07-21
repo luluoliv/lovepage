@@ -1,11 +1,10 @@
 import axios from "axios";
 
 export default async function PostPhoto(props) {
-
     const formData = new FormData();
     formData.append("photo", props.photo);
     formData.append("desc", props.desc);
-    
+
     try {
         const response = await axios.post(
             "https://love-pageapi.onrender.com/features/",
@@ -19,10 +18,11 @@ export default async function PostPhoto(props) {
             }
         );
         console.log(response.data);
-        props.onHide();
-        props.notify("Foto enviada com sucesso!");
+        props.notify(true, "Foto enviada com sucesso!");
+        props.setIsLoading(false); 
     } catch (error) {
         console.error("Error:", error);
-        props.notify("Erro: ação somente para admins");
+        props.notify(false, "Erro: ação somente para admins");
+        props.setIsLoading(false);
     }
 }
