@@ -4,7 +4,7 @@ export default function AboutUsTitle() {
 
     return(
         <div className="content">
-            <h2 className="title">About Us</h2>
+            <h2 className="title">Sobre nós</h2>
         </div>
     )
 }

@@ -1,10 +1,9 @@
-
 .content {
     display: flex;
     align-items: center;
     justify-items: center;
     flex-direction: row;
-    gap: 1%;
+    gap: 10px;
 }
 
 .title {
@@ -17,7 +16,7 @@
     border-radius: 100px;
 }
 
-.btn-plus{
+.btn-plus {
     color: #252525;
     font-size: 2em;
 }
@@ -30,3 +29,55 @@
     border: none;
 }
 
+/* Media queries para layout responsivo */
+
+/* Dispositivos móveis */
+@media screen and (max-width: 480px) {
+    .content {
+        gap: 10px;
+    }
+    .btn-plus {
+        font-size: 1.5em;
+    }
+}
+
+/* iPads e tablets */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .content {
+        gap: 10px;
+    }
+    .btn-plus {
+        font-size: 1.6em;
+    }
+}
+
+/* Laptops pequenos */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .title {
+        font-size: 1.6em;
+    }
+    .btn-plus {
+        font-size: 1.7em;
+    }
+}
+
+/* Desktops e telas grandes */
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+    .title {
+        font-size: 1.8em;
+    }
+
+    .btn-plus {
+        font-size: 1.8em;
+    }
+}
+
+/* Telas muito grandes e TVs */
+@media screen and (min-width: 1201px) {
+    .title {
+        font-size: 2em;
+    }
+    .btn-plus {
+        font-size: 1.6em;
+    }
+}

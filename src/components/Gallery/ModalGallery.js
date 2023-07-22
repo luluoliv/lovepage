@@ -1,4 +1,5 @@
-import { Form, Button, Modal, ToastContainer } from "react-bootstrap";
+import { ToastContainer } from 'react-toastify';
+import { Form, Button, Modal } from "react-bootstrap";
 import { React, useState } from "react";
 import { Notify } from "../../utils/Notify";
 
@@ -10,6 +11,7 @@ import "./ModalGallery.css";
 function ModalGallery(props) {
     const [photoFile, setPhotoFile] = useState(null);
     const [desc, setDesc] = useState("");
+
     const [isLoading, setIsLoading] = useState(false);
 
     const postPhoto = async () => {
@@ -45,7 +47,7 @@ function ModalGallery(props) {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form onSubmit={postPhoto}>
+                    <Form>
                         <Form.Control
                             className="modal-gallery-file mb-3"
                             type="file"
@@ -70,6 +72,7 @@ function ModalGallery(props) {
                             variant="outline-dark"
                             type="submit"
                             disabled={isLoading}
+                            onClick={postPhoto}
                         >
                             {isLoading ? 'Enviando...' : 'Enviar'}
                         </Button>

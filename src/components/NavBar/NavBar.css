@@ -1,6 +1,64 @@
-.navbar{
-    margin: 1.5% auto;
+.navbar {
+    margin: 2% auto;
     border-radius: 60px;
-    max-width: 900px;
+    max-width: 700px;
     font-size: 1.5em;
+    padding: 0;
+    background-color: #efefef;
+}
+
+.navbar-toggler-icon{
+    display: none;   
+    outline: none;
+    box-shadow: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+    border: none;
+}
+
+/* Media queries para layout responsivo */
+
+/* Dispositivos móveis */
+@media screen and (max-width: 480px) {
+    .navbar {
+        font-size: 1.4em;
+        padding: 5px;
+        border-radius: 40px;
+        max-width: 350px;
+    }
+}
+
+/* iPads e tablets */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .navbar {
+        font-size: 1.4em;
+        padding: 10px;
+        border-radius: 40px;
+        max-width: 600px;
+    }
+}
+
+/* Laptops pequenos */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .navbar {
+        font-size: 1.4em;
+    }
+}
+
+/* Desktops e telas grandes */
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+    .navbar {
+        font-size: 1.5em;
+    }
+}
+
+/* Telas muito grandes e TVs */
+@media screen and (min-width: 1201px) {
+    .navbar {
+        max-width: 800px;
+        font-size: 1.5em;
+    }
 }

@@ -5,24 +5,23 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import "../NavBar/NavBar.css";
 
 export default function NavBar() {
-
     const handleClickLogout = () => {
         localStorage.clear();
+        console.log("local storage limpo!");
     };
 
     return (
         <>
-            <Navbar
-                collapseOnSelect
-                expand="lg"
-                className="navbar navbar-expand-lg navbar-light bg-light"
-            >
+            <Navbar collapseOnSelect expand="lg" className="navbar">
                 <Container
                     className="collapse navbar-collapse justify-content-right gap-5"
                     id="navbarNav align-items-center"
                 >
-                    <Navbar.Toggle aria-controls="navbarNav toggle" />
-                    <Navbar.Collapse id="navbarNav">
+                    <Navbar.Toggle aria-controls="navbarNav toggle">
+                        <i class="fa-solid fa-bars-staggered"></i>
+                        <span className="navbar-toggler-icon"></span>
+                    </Navbar.Toggle>
+                    <Navbar.Collapse id="navbar-collapse-content navbarNav">
                         <Nav className="m-auto">
                             <Nav.Link>
                                 <Link to={"/home"} className="nav-link">
@@ -59,18 +58,18 @@ export default function NavBar() {
                                     <i className="fa-solid fa-circle-user"></i>
                                 </Link>
                             </Nav.Link>
-                            <Nav.Link>
-                                <a
-                                    href="/"
-                                    className="nav-link"
-                                    onClick={handleClickLogout}
-                                >
-                                    <i
-                                        className="fa-solid fa-right-from-bracket"
-                                        style={{ color: "grey" }}
-                                    ></i>
-                                </a>
-                            </Nav.Link>
+                        </Nav>
+                        <Nav>
+                            <a
+                                onClick={handleClickLogout}
+                                href="/"
+                                className="nav-link"
+                            >
+                                <i
+                                    className="fa-solid fa-right-from-bracket"
+                                    style={{ color: "grey" }}
+                                ></i>
+                            </a>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
