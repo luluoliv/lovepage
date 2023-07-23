@@ -5,81 +5,91 @@ import ModalPhoto from "./ModalPhoto";
 import "./../../components/Gallery/Photo.css";
 
 function Photo() {
-  const [photos, setPhotos] = useState([]);
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
+    const [photos, setPhotos] = useState([]);
+    const [selectedPhoto, setSelectedPhoto] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://love-pageapi.onrender.com/features/",
-          {
-            headers: {
-              Authorization: "Token " + localStorage.getItem("token"),
-            },
-          }
-        );
-        setPhotos(response.data);
-      } catch (error) {
-        console.log(error);
-      }
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(
+                    "https://love-pageapi.onrender.com/features/",
+                    {
+                        headers: {
+                            Authorization:
+                                "Token " + localStorage.getItem("token"),
+                        },
+                    }
+                );
+                setPhotos(response.data);
+                setLoading(false);
+            } catch (error) {
+                console.log(error);
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const [hoveredPhotoId, setHoveredPhotoId] = useState(null);
+
+    const handleMouseEnter = (photoId) => {
+        setHoveredPhotoId(photoId);
     };
 
-    fetchData();
-  }, []);
+    const handleMouseLeave = () => {
+        setHoveredPhotoId(null);
+    };
 
-  const [hoveredPhotoId, setHoveredPhotoId] = useState(null);
+    const comparePhotosById = (photoA, photoB) => {
+        return photoB.id - photoA.id;
+    };
 
-  const handleMouseEnter = (photoId) => {
-    setHoveredPhotoId(photoId);
-  };
+    const openModal = (photo) => {
+        setSelectedPhoto(photo);
+    };
 
-  const handleMouseLeave = () => {
-    setHoveredPhotoId(null);
-  };
+    const closeModal = () => {
+        setSelectedPhoto(null);
+    };
 
-  const comparePhotosById = (photoA, photoB) => {
-    return photoB.id - photoA.id;
-  };
-
-  const openModal = (photo) => {
-    setSelectedPhoto(photo);
-  };
-
-  const closeModal = () => {
-    setSelectedPhoto(null);
-  };
-
-  return (
-    <div className="photo-gallery">
-      {photos && photos.length > 0 ? (
-        photos.sort(comparePhotosById).map((photo) => (
-          <div
-            key={photo.id}
-            className="photo-item"
-            onMouseEnter={() => handleMouseEnter(photo.id)}
-            onMouseLeave={handleMouseLeave}
-            onClick={() => openModal(photo)}
-          >
-            <img
-              className="photo-img"
-              src={photo.photo}
-              alt={photo.desc}
-            />
-            {hoveredPhotoId === photo.id && (
-              <p className="photo-desc">{photo.desc}</p>
+    return (
+        <div className="photo-gallery">
+            {loading ? (
+                <i class="photo-loading fa-solid fa-spinner fa-spin-pulse"></i>
+            ) : photos && photos.length > 0 ? (
+                photos.sort(comparePhotosById).map((photo) => (
+                    <div
+                        key={photo.id}
+                        className="photo-item"
+                        onMouseEnter={() => handleMouseEnter(photo.id)}
+                        onMouseLeave={handleMouseLeave}
+                        onClick={() => openModal(photo)}
+                    >
+                        {hoveredPhotoId === photo.id && (
+                            <p className="photo-desc">{photo.desc}</p>
+                        )}
+                        <img
+                            className="photo-img"
+                            src={photo.photo}
+                            alt={photo.desc}
+                        />
+                    </div>
+                ))
+            ) : (
+                <p className="photo-alert">Nenhuma foto adicionada</p>
             )}
-          </div>
-        ))
-      ) : (
-        <p className="photo-alert">Nenhuma foto adicionada</p>
-      )}
 
-      {selectedPhoto && (
-        <ModalPhoto photo={selectedPhoto} show={true} onClose={closeModal} />
-      )}
-    </div>
-  );
+            {selectedPhoto && (
+                <ModalPhoto
+                    photo={selectedPhoto}
+                    show={true}
+                    onClose={closeModal}
+                />
+            )}
+        </div>
+    );
 }
 
 export default Photo;

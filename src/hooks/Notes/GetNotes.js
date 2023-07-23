@@ -1,9 +1,8 @@
 import axios from "axios";
-import { useState } from 'react';
 
 export default async function GetNotes(props){
 
-    const { refresh, setRefresh } = props
+    const { setRefresh } = props
 
     return await axios
         .get("https://love-pageapi.onrender.com/notes/")

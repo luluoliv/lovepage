@@ -1,8 +1,4 @@
-.photo-modal {
-    margin: 0;
-    padding: 0;
-}
-
+.modal-photo,
 .modal-photo-content {
     margin: 0;
     padding: 0;
@@ -22,13 +18,22 @@
     left: 0;
     right: 0;
     margin: 0;
+    overflow: hidden;
+    overflow-wrap: break-word;
 }
 
-.close-modal-btn{
+.modal-close-btn{
     position: absolute;
     top: 0;
     right: 0;
     background-color: transparent;
     font-size: 1.2em;
     color: white;
+}
+
+.photo-edit-btn{
+    background-color: transparent;
+    position: absolute;
+    color: white;
+
 }
