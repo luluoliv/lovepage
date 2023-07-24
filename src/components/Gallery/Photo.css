@@ -57,15 +57,17 @@
     border-radius: 15px;
 }
 
+.photo-icons{
+    color: white
+}
+
 .photo-desc {
-    font-size: 1em;
     z-index: 3;
     color: white;
     opacity: 0;
+    transform: translateY(30px);
     transition: 0.4s ease-out;
     text-align: center;
-    overflow: hidden;
-    overflow-wrap: break-word;
 }
 
 .photo-item:hover .photo-desc {
@@ -75,12 +77,6 @@
 
 .photo-alert {
     font-size: 1.2em;
-    margin: 2% 0 0 10%;
-}
-
-.photo-loading{
-    margin: 5% auto;
-    font-size: 2em;
 }
 
 /* Media queries para layout responsivo */
@@ -115,20 +111,12 @@
         width: 160px;
         height: 160px;
     }
-
-    .photo-alert{
-        font-size: 1.3em;
-    }
 }
 
 /* Telas muito grandes e TVs */
 @media screen and (min-width: 1201px) {
     .photo-item {
-        width: 190px;
-        height: 190px;
-    }
-
-    .photo-alert{
-        font-size: 1.2em;
+        width: 180px;
+        height: 180px;
     }
 }

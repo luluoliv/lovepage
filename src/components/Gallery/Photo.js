@@ -1,36 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ModalPhoto from "./ModalPhoto";
+import GetPhotos from "../../hooks/Gallery/GetPhotos";
 
 import "./../../components/Gallery/Photo.css";
 
-function Photo() {
+function Photo(props) {
     const [photos, setPhotos] = useState([]);
     const [selectedPhoto, setSelectedPhoto] = useState(null);
     const [loading, setLoading] = useState(true);
+    const {refresh, setRefresh} = props
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(
-                    "https://love-pageapi.onrender.com/features/",
-                    {
-                        headers: {
-                            Authorization:
-                                "Token " + localStorage.getItem("token"),
-                        },
-                    }
-                );
-                setPhotos(response.data);
-                setLoading(false);
-            } catch (error) {
-                console.log(error);
-                setLoading(false);
-            }
-        };
-
-        fetchData();
-    }, []);
+        GetPhotos({ setPhotos, setLoading});
+    }, [refresh, setRefresh]);
 
     const [hoveredPhotoId, setHoveredPhotoId] = useState(null);
 

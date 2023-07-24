@@ -1,12 +1,13 @@
 .table{
     width: auto;
-    margin-left: 10%;
+    margin-left: 5%;
     margin-right: 10%;
     margin-top: 20px;
     
 }
 
 .notes-column{
+    padding: 0%;
     width: 80%;
 }
 

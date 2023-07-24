@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import GetNotes from "../../hooks/Notes/GetNotes"; 
-
 import "./Note.css";
 
 export default function Note(props) {
@@ -17,6 +16,7 @@ export default function Note(props) {
     }
 
     const [notes, setNotes] = useState(null);
+    const [intervalId, setIntervalId] = useState(null);
 
     useEffect(() => {
         GetNotes({ setNotes, setRefresh });
@@ -31,7 +31,6 @@ export default function Note(props) {
     };
 
     return (
-        <>
             <div className="scroll-div">    
                 <div className="grid-container">
                     {notes
@@ -53,6 +52,5 @@ export default function Note(props) {
                         : null}
                 </div>
             </div>
-        </>
     );
 }

@@ -15,7 +15,14 @@ function TitlePage(props) {
     const getModalComponent = () => {
         switch (name) {
             case "Galeria":
-                return <ModalGallery show={modalIsOpen} onHide={closeModal} />;
+                return (
+                    <ModalGallery
+                        onHide={closeModal}
+                        show={modalIsOpen}
+                        refresh={refresh}
+                        setRefresh={setRefresh}
+                    />   
+                );
             case "Reclamações":
                 return (
                     <ModalNotes

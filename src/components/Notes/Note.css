@@ -1,5 +1,7 @@
 .grid-container {
     display: grid;
+    margin: 0%;
+    padding: 0%;
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: 90px;
     column-gap: 20px;
@@ -7,8 +9,9 @@
 }
 
 .scroll-div{
-    padding: 20px;
     width: 100%;
+    margin: 0%;
+    padding: 0%;
     max-height: 580px;
     overflow: scroll;
 }
@@ -16,6 +19,7 @@
 .grid-item {
     border-radius: 30px;
     display: flex;
+    min-width: 300px;
     align-items: center;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     padding: 10px;

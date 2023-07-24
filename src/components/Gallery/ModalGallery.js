@@ -11,8 +11,8 @@ import "./ModalGallery.css";
 function ModalGallery(props) {
     const [photoFile, setPhotoFile] = useState(null);
     const [desc, setDesc] = useState("");
-
     const [isLoading, setIsLoading] = useState(false);
+    const {refresh, setRefresh} = props
 
     const postPhoto = async () => {
         setIsLoading(true)
@@ -22,6 +22,8 @@ function ModalGallery(props) {
             desc: desc,
             setIsLoading: setIsLoading,
             notify: Notify,
+            refresh: refresh,
+            setRefresh: setRefresh
         });
 
         props.onHide()

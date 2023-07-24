@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import NavBar from "../../components/NavBar/NavBar";
 import { divStyle } from "../../components/BackgroundDiv/BackgroundDiv";
@@ -8,13 +8,22 @@ import Photo from "../../components/Gallery/Photo";
 import "./Gallery.css";
 
 export default function Gallery() {
+    const [refresh, setRefresh] = useState(false)
+
     return (
         <>
             <div style={divStyle}>
                 <NavBar />
-                <TitlePage name="Galeria" />
+                <TitlePage
+                    name="Galeria" 
+                    refresh={refresh}
+                    setRefresh={setRefresh}
+                    />
                 <div className="photos">
-                    <Photo />
+                    <Photo 
+                        refresh={refresh}
+                        setRefresh={setRefresh}
+                    />
                 </div>
             </div>
         </>

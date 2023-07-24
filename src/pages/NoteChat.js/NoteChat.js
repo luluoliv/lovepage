@@ -103,7 +103,17 @@ export default function NoteChat(props) {
 
             <NavBar />
             <div className="chat-container">
-                <h2>{note ? note.title : "Carregando..."}</h2>
+                
+                <>
+                {note ? (
+                    <h2>
+                        {note.title}
+                    </h2>
+                ) : (
+                    <i class="photo-loading fa-solid fa-spinner fa-spin-pulse"></i>
+                )
+                }
+                </>
                 <Chat
                     openModal={openModal}
                     openDeleteModal={openDeleteModal}

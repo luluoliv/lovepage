@@ -3,7 +3,7 @@
     align-items: center;
     justify-items: center;
     flex-direction: row;
-    gap: 10px;
+    gap: 20px;
 }
 
 .title {
@@ -16,7 +16,7 @@
     border-radius: 100px;
 }
 
-.btn-plus {
+.btn-plus{
     color: #252525;
     font-size: 2em;
 }
