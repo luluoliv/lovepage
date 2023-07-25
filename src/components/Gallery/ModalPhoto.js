@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-import { Dropdown, Modal } from "react-bootstrap";
+import { Button, Dropdown, Form, Modal } from "react-bootstrap";
 
 import DeletePhotos from "../../hooks/Gallery/DeletePhotos";
 import { Notify } from "../../utils/Notify";
 
 import "./ModalPhoto.css";
+import PutPhotos from "../../hooks/Gallery/PutPhotos";
 
 function ModalPhoto({ photo, show, onClose }) {
     const [currentPhoto, setPhoto] = useState(photo);
+
+    const [editingDescription, setEditingDescription] = useState(false);
+    const [newDescription, setNewDescription] = useState(currentPhoto.desc);
 
     const handleDeletePhoto = (photoId) => {
         DeletePhotos({
@@ -18,6 +22,15 @@ function ModalPhoto({ photo, show, onClose }) {
         });
     };
 
+    const handleEditDescription = () => {
+        setEditingDescription(true);
+    };
+
+    const handleCancelEdit = () => {
+        setEditingDescription(false);
+        setNewDescription(currentPhoto.desc);
+    };
+
     return (
         <Modal show={show} onHide={onClose} className="modal-photo">
             <Modal.Body className="modal-photo-content">
@@ -26,11 +39,8 @@ function ModalPhoto({ photo, show, onClose }) {
                         <i class="fa-solid fa-pen"></i>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1">
-                            Editar descrição
-                        </Dropdown.Item>
+                        <Dropdown.Item>Editar descrição</Dropdown.Item>
                         <Dropdown.Item
-                            href="#/action-2"
                             onClick={() => handleDeletePhoto(currentPhoto.id)}
                         >
                             Deletar foto
@@ -48,7 +58,26 @@ function ModalPhoto({ photo, show, onClose }) {
                     alt={currentPhoto.desc}
                 />
 
-                <p className="modal-photo-desc">{currentPhoto.desc}</p>
+                {editingDescription ? (
+                    <Form.Group>
+                        <Form.Control
+                            type="text"
+                            value={newDescription}
+                            onChange={(e) => setNewDescription(e.target.value)}
+                        />
+                        <div>
+                            <Button variant="success">Salvar</Button>
+                            <Button
+                                variant="secondary"
+                                onClick={handleCancelEdit}
+                            >
+                                Cancelar
+                            </Button>
+                        </div>
+                    </Form.Group>
+                ) : (
+                    <p className="modal-photo-desc">{currentPhoto.desc}</p>
+                )}
             </Modal.Body>
         </Modal>
     );
