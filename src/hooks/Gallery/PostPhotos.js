@@ -6,7 +6,7 @@ export default async function PostPhoto(props) {
     formData.append("desc", props.desc);
 
     try {
-        const response = await axios.post(
+        await axios.post(
             "https://love-pageapi.onrender.com/features/",
             formData,
             {

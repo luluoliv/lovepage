@@ -1,4 +1,4 @@
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
 import { Form, Button, Modal } from "react-bootstrap";
 import { React, useState } from "react";
 import { Notify } from "../../utils/Notify";
@@ -12,10 +12,10 @@ function ModalGallery(props) {
     const [photoFile, setPhotoFile] = useState(null);
     const [desc, setDesc] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-    const {refresh, setRefresh} = props
+    const { refresh, setRefresh } = props;
 
     const postPhoto = async () => {
-        setIsLoading(true)
+        setIsLoading(true);
 
         await PostPhoto({
             photo: photoFile,
@@ -23,10 +23,10 @@ function ModalGallery(props) {
             setIsLoading: setIsLoading,
             notify: Notify,
             refresh: refresh,
-            setRefresh: setRefresh
+            setRefresh: setRefresh,
         });
 
-        props.onHide()
+        props.onHide();
     };
 
     return (
@@ -76,7 +76,7 @@ function ModalGallery(props) {
                             disabled={isLoading}
                             onClick={postPhoto}
                         >
-                            {isLoading ? 'Enviando...' : 'Enviar'}
+                            {isLoading ? "Enviando..." : "Enviar"}
                         </Button>
                     </Form>
                 </Modal.Body>

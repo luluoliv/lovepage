@@ -2,8 +2,6 @@ import axios from "axios";
 
 export default async function GetPhotos(props){
 
-    const { setRefresh } = props
-
     await axios
         .get("https://love-pageapi.onrender.com/features/")
         .then((responseData) => {
