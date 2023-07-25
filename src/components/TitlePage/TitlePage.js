@@ -21,7 +21,7 @@ function TitlePage(props) {
                         show={modalIsOpen}
                         refresh={refresh}
                         setRefresh={setRefresh}
-                    />   
+                    />
                 );
             case "Reclamações":
                 return (
@@ -33,7 +33,14 @@ function TitlePage(props) {
                     />
                 );
             case "Filmes":
-                return <ModalMovies show={modalIsOpen} onHide={closeModal} />;
+                return (
+                    <ModalMovies
+                        show={modalIsOpen}
+                        onHide={closeModal}
+                        refresh={refresh}
+                        setRefresh={setRefresh}
+                    />
+                );
             default:
                 return null;
         }

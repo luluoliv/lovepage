@@ -16,7 +16,6 @@ export default function Note(props) {
     }
 
     const [notes, setNotes] = useState(null);
-    const [intervalId, setIntervalId] = useState(null);
 
     useEffect(() => {
         GetNotes({ setNotes, setRefresh });

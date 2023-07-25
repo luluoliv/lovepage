@@ -1,7 +1,16 @@
-.modal-photo,
-.modal-photo-content {
+.modal-photo .modal-content {
     margin: 0;
     padding: 0;
+    border-radius: 0;
+}
+
+.modal-photo-content .modal-content{
+    padding: 0;
+}
+
+.modal-photo-btns{
+    position: absolute;
+    top: 0;
 }
 
 .modal-photo-img {
@@ -11,6 +20,7 @@
 }
 
 .modal-photo-desc {
+    background-color: rgba(0, 0, 0, 0.363);
     color: white;
     padding: 8px;
     position: absolute;
@@ -20,20 +30,4 @@
     margin: 0;
     overflow: hidden;
     overflow-wrap: break-word;
-}
-
-.modal-close-btn{
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: transparent;
-    font-size: 1.2em;
-    color: white;
-}
-
-.photo-edit-btn{
-    background-color: transparent;
-    position: absolute;
-    color: white;
-
 }

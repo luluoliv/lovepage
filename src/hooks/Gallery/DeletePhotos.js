@@ -15,9 +15,16 @@ export default async function DeletePhotos(props) {
         );
         props.closeModal();
         props.notify(true, "Foto deletada com sucesso");
+        props.setRefresh(!props.refresh);
     } catch (err) {
         console.log(err);
         props.closeModal();
-        props.notify(false, "Erro: ação somente para admins");
+
+        if (err.response && (err.response === 404 || err.response === 410)) {
+            props.notify(false, "Erro: a foto já foi deletada.");
+        } else {
+            props.notify(false, "Erro: ação somente para admins");
+        }
+
     }
 }

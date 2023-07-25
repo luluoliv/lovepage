@@ -3,7 +3,6 @@ import React from "react";
 import { Form, Button } from "react-bootstrap";
 
 function ModalMovies(props) {
-
     return (
         <>
             <Modal
@@ -33,27 +32,6 @@ function ModalMovies(props) {
                                 className="modal-note-textarea"
                                 as="textarea"
                                 rows={1}
-                            />
-                        </Form.Group>
-                        <Form.Label>Usuário</Form.Label>
-                        <Form.Group
-                            className="mb-3 row-flex"
-                            controlId="exampleForm.ControlTextarea1"
-                        >
-                            <Form.Check
-                                inline
-                                label="Guizen"
-                                name="group1"
-                                value={"Guilherme"}
-                                type="radio"
-                            />
-                            <Form.Check
-                                inline
-                                label="Lulu"
-                                name="group1"
-                                value={"Luara"}
-                                radio
-                                type="radio"
                             />
                         </Form.Group>
                         <Button
