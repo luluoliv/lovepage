@@ -34,7 +34,7 @@ export default function Chat(props) {
     };
 
     function handleClassName(user) {
-        if (user == localStorage.getItem("user_id")) {
+        if (user === localStorage.getItem("user_id")) {
             return "sent-content mt-5";
         } else {
             return "received-content mt-5";
@@ -85,7 +85,7 @@ export default function Chat(props) {
                                         <div className="usuario">
                                             <i className="fa-solid fa-circle-user fa-4x"></i>
                                             <span className="nome">
-                                                {item.user == "2"
+                                                {item.user === "2"
                                                     ? "Guizen"
                                                     : "Lulu"}
                                             </span>

@@ -23,7 +23,7 @@
 
 .modal-content {
     padding: 4%;
-    margin: 3% auto;
+    margin: 5% auto;
     background-color: #e08181;
     border-radius: 50px;
     border: none;
@@ -78,6 +78,6 @@
         font-size: 2em;
     }
     .btn-plus {
-        font-size: 1.6em;
+        font-size: 1.8em;
     }
 }
