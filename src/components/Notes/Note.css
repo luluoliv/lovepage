@@ -31,6 +31,27 @@
     );
     transition: transform 0.3s ease;
     cursor: pointer;
+    position: relative
+}
+
+.update-icon {
+    margin-left: 10px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+  
+.grid-item:hover .update-icon {
+    opacity: 1;
+}
+
+.update-icon:hover{
+    color: #009f06;
 }
 
 .grid-item:hover {

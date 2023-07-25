@@ -30,6 +30,11 @@ export default function Note(props) {
         }
     };
 
+    const handleIconClick = (event) => {
+        event.stopPropagation();
+        console.log('Clicado')
+    };
+
     return (
             <div className="scroll-div">    
                 <div className="grid-container">
@@ -40,12 +45,16 @@ export default function Note(props) {
                                       className="grid-item"
                                       onClick={() => handleClick(item)}
                                   >
-                                      <div className="titulo">{item.title}</div>
-                                      <div
-                                          className={handleStatusColor(item.state)}
-                                      >
+                                        <i
+                                            class="fa-solid fa-pen update-icon"
+                                            onClick={(event) => handleIconClick(event)}
+                                        ></i>
+                                        <div className="titulo">{item.title}</div>
+                                        <div
+                                            className={handleStatusColor(item.state)}
+                                        >
 
-                                      </div>
+                                        </div>
                                   </div>
                               );
                           })
