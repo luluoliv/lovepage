@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import ModalPhoto from "./ModalPhoto";
 import GetPhotos from "../../hooks/Gallery/GetPhotos";
 
@@ -9,10 +8,10 @@ function Photo(props) {
     const [photos, setPhotos] = useState([]);
     const [selectedPhoto, setSelectedPhoto] = useState(null);
     const [loading, setLoading] = useState(true);
-    const {refresh, setRefresh} = props
+    const { refresh, setRefresh } = props;
 
     useEffect(() => {
-        GetPhotos({ setPhotos, setLoading});
+        GetPhotos({ setPhotos, setLoading });
     }, [refresh, setRefresh]);
 
     const [hoveredPhotoId, setHoveredPhotoId] = useState(null);

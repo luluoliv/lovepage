@@ -77,6 +77,12 @@
 
 .photo-alert {
     font-size: 1.2em;
+    text-align: center;
+}
+
+.photo-loading {
+    font-size: 2em;
+    margin: 50px auto;
 }
 
 /* Media queries para layout responsivo */

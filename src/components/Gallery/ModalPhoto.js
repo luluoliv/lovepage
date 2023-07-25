@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Dropdown, Modal } from "react-bootstrap";
 
-import DeletePhoto from "../../hooks/Gallery/DeletePhotos";
+import DeletePhotos from "../../hooks/Gallery/DeletePhotos";
 import { Notify } from "../../utils/Notify";
 
 import "./ModalPhoto.css";
@@ -9,8 +9,9 @@ import "./ModalPhoto.css";
 function ModalPhoto({ photo, show, onClose }) {
     const [currentPhoto, setPhoto] = useState(photo);
 
-    const handleDeletePhoto = () => {
-        DeletePhoto({
+    const handleDeletePhoto = (photoId) => {
+        DeletePhotos({
+            photoId: photoId,
             setPhoto: setPhoto,
             notify: Notify,
             closeModal: onClose,
@@ -30,7 +31,7 @@ function ModalPhoto({ photo, show, onClose }) {
                         </Dropdown.Item>
                         <Dropdown.Item
                             href="#/action-2"
-                            onClick={handleDeletePhoto}
+                            onClick={() => handleDeletePhoto(currentPhoto.id)}
                         >
                             Deletar foto
                         </Dropdown.Item>

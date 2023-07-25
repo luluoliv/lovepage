@@ -1,11 +1,11 @@
 import axios from "axios";
 
-export default async function DeletePhoto(props) {
+export default async function DeletePhotos(props) {
+    const { photoId } = props;
+
     try {
         await axios.delete(
-            `https://love-pageapi.onrender.com/notes/${localStorage.getItem(
-                "photo_id"
-            )}/`,
+            `https://love-pageapi.onrender.com/features/detail/${photoId}/`,
             {
                 headers: {
                     Authorization: "Token " + localStorage.getItem("token"),
@@ -13,7 +13,6 @@ export default async function DeletePhoto(props) {
                 withCredentials: true,
             }
         );
-        props.setPhoto(null); // define a foto como null para removê-la da exibição
         props.closeModal();
         props.notify(true, "Foto deletada com sucesso");
     } catch (err) {
