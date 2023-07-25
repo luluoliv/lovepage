@@ -12,11 +12,13 @@ import "./ModalNotes.css";
 
 function ModalNotes(props) {
     const [title, setTitle] = useState(false);
+    const [loading, setLoading] = useState(false)
 
     const { refresh, setRefresh } = props        
 
     const postNote = async () => {
         
+        setLoading(true)
         await PostNote({
             title: title,
             state: "0",
@@ -24,6 +26,7 @@ function ModalNotes(props) {
             setRefresh: setRefresh,
             notify: Notify
         })
+        setLoading(false)
 
         props.onHide()
     };
@@ -67,9 +70,10 @@ function ModalNotes(props) {
                         <Button
                             className="modal-note-btn"
                             variant="outline-dark"
+                            disabled={loading}
                             onClick={postNote}
                         >
-                            Enviar
+                            {loading ? 'Enviando...' : 'Enviar'}
                         </Button>
                     </Form>
                 </Modal.Body>

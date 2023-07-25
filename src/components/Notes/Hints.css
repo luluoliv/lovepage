@@ -1,44 +1,50 @@
-.hint-table{
-    width: 100%;
-    background-color: #252525B2;
-    border-radius: 10px;
-    height: 250px;
-    border-spacing: 40px;
-    margin-left: 30px;
+.hints-container{
+    margin-left: 50px;
 }
 
-.legenda{
-    margin-left: 30px;
+.hint-table{
+    width: 100%;
+    height: 110px;
+    border-spacing: 40px;
 }
+
+
 
 td{
     border-top: none;
     border-bottom: none;
-    align-items: center;
+    align-items: left;
 }
 
+
 .hint-td-tr{
-    padding: 20px;
+    padding: 5px;
+}
+
+.legenda{
+    font-size: 2.0rem;
+    margin-bottom: 20px;
+    font-weight: 600;
 }
 
 .resolvido {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
     background-color: #009F06;
     position: relative;
-    float: right;
 }
 
 .nao-resolvido {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
     background-color: #9C0000;
     position: relative;
-    float: right;
 }
 
 .hint-title {
-    color: #FFFFFF;
+    color: #252525;
+    font-size: 1.2em;
+    font-weight: 400;
 }
