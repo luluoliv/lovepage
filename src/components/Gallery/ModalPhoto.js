@@ -7,7 +7,7 @@ import { Notify } from "../../utils/Notify";
 import "./ModalPhoto.css";
 import PutPhotos from "../../hooks/Gallery/PutPhotos";
 
-function ModalPhoto({ photo, show, onClose }) {
+function ModalPhoto({ photo, show, onClose, setRefresh, refresh }) {
     const [currentPhoto, setPhoto] = useState(photo);
 
     const [editingDescription, setEditingDescription] = useState(false);
@@ -19,6 +19,8 @@ function ModalPhoto({ photo, show, onClose }) {
             setPhoto: setPhoto,
             notify: Notify,
             closeModal: onClose,
+            setRefresh: setRefresh,
+            refresh: refresh
         });
     };
 

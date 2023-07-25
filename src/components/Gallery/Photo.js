@@ -68,6 +68,8 @@ function Photo(props) {
                     photo={selectedPhoto}
                     show={true}
                     onClose={closeModal}
+                    setRefresh={setRefresh}
+                    refresh={refresh}
                 />
             )}
         </div>

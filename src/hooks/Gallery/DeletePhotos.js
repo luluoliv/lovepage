@@ -15,6 +15,7 @@ export default async function DeletePhotos(props) {
         );
         props.closeModal();
         props.notify(true, "Foto deletada com sucesso");
+        props.setRefresh(!props.refresh)
     } catch (err) {
         console.log(err);
         props.closeModal();
