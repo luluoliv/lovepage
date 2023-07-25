@@ -27,6 +27,9 @@ export default async function PutNoteChat(props){
         .then(()=>{
             props.notify(true, 'Reclamação resolvida, parabéns!')
         })
+        .then(()=>{
+            props.setIsloading(true)
+        })
         .then(() =>{
             return(true)
         })
