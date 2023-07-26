@@ -20,6 +20,7 @@ function ModalGallery(props) {
         await PostPhoto({
             photo: photoFile,
             desc: desc,
+            type: 'mural',
             setIsLoading: setIsLoading,
             notify: Notify,
             refresh: refresh,

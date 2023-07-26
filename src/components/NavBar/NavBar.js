@@ -18,7 +18,7 @@ export default function NavBar() {
                     id="navbarNav align-items-center"
                 >
                     <Navbar.Toggle aria-controls="navbarNav toggle">
-                        <i class="fa-solid fa-bars-staggered"></i>
+                        <i className="fa-solid fa-bars-staggered"></i>
                         <span className="navbar-toggler-icon"></span>
                     </Navbar.Toggle>
                     <Navbar.Collapse id="navbar-collapse-content navbarNav">

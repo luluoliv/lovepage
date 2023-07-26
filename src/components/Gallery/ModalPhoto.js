@@ -21,7 +21,7 @@ function ModalPhoto({ photo, show, onClose, setRefresh, refresh }) {
     };
 
     return (
-        <Modal show={show} onHide={onClose} className="modal-photo">
+        <Modal show={show} onHide={onClose} className="modal-photo" size="md">
             <Modal.Body className="modal-photo-content">
                 <img
                     className="modal-photo-img"
@@ -33,11 +33,11 @@ function ModalPhoto({ photo, show, onClose, setRefresh, refresh }) {
                         className="modal-delete-btn"
                         onClick={() => handleDeletePhoto(currentPhoto.id)}
                     >
-                        <i class="fa-solid fa-trash-can"></i>
+                        <i className="fa-solid fa-trash-can"></i>
                     </Button>
 
                     <Button className="modal-close-btn" onClick={onClose}>
-                        <i class="fa-solid fa-xmark"></i>
+                        <i className="fa-solid fa-xmark"></i>
                     </Button>
                 </div>
 

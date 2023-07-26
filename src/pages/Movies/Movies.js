@@ -1,15 +1,20 @@
+import { useState } from "react";
+import { divStyle } from "../../components/BackgroundDiv/BackgroundDiv";
 
 import TitlePage from "../../components/TitlePage/TitlePage";
 import NavBar from "../../components/NavBar/NavBar";
-import { divStyle } from "../../components/BackgroundDiv/BackgroundDiv";
+import Movie from "../../components/Movies/Movie";
 
-export default function Movies(params) {
+export default function Movies() {
+    const [refresh, setRefresh] = useState(false);
+
     return (
         <>
             <div style={divStyle}>
                 <NavBar />
                 <TitlePage name="Filmes" />
+                <Movie refresh={refresh} setRefresh={setRefresh} />
             </div>
         </>
-    )
+    );
 }

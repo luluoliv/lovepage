@@ -1,12 +1,12 @@
 import axios from "axios";
 
-export default async function GetPhotos(props){
+export default async function GetMyMovies(props){
 
     await axios
-        .get("https://love-pageapi.onrender.com/features/type/mural")
+        .get("https://love-pageapi.onrender.com/features/type/filme")
         .then((responseData) => {
             props.setLoading(false)
-            props.setPhotos(responseData.data);
+            props.setMovies(responseData.data);
         })
         .catch((err) => {
             console.log(err);

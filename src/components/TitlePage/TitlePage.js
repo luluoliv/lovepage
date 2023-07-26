@@ -51,7 +51,7 @@ function TitlePage(props) {
             <div className="content">
                 <h2 className="title">{name}</h2>
                 <button className="btn-modal" onClick={openModal}>
-                    <i class="btn-plus fa-solid fa-circle-plus"></i>
+                    <i className="btn-plus fa-solid fa-circle-plus"></i>
                 </button>
             </div>
             {getModalComponent()}

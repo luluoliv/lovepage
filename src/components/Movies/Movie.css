@@ -1,0 +1,14 @@
+.movie-grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin: 1% 5% 0 5%;
+    padding-bottom: 100px;
+    max-height: 400px;
+    overflow: auto;
+}
+
+.movie-alert{
+    font-size: 1.2em;
+    text-align: left;
+}

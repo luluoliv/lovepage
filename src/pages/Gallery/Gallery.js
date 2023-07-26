@@ -8,22 +8,19 @@ import Photo from "../../components/Gallery/Photo";
 import "./Gallery.css";
 
 export default function Gallery() {
-    const [refresh, setRefresh] = useState(false)
+    const [refresh, setRefresh] = useState(false);
 
     return (
         <>
             <div style={divStyle}>
                 <NavBar />
                 <TitlePage
-                    name="Galeria" 
+                    name="Galeria"
                     refresh={refresh}
                     setRefresh={setRefresh}
-                    />
+                />
                 <div className="photos">
-                    <Photo 
-                        refresh={refresh}
-                        setRefresh={setRefresh}
-                    />
+                    <Photo refresh={refresh} setRefresh={setRefresh} />
                 </div>
             </div>
         </>

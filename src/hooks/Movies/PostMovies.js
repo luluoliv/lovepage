@@ -1,9 +1,10 @@
 import axios from "axios";
 
-export default async function PostPhoto(props) {
+export default async function PostMovies(props) {
     const formData = new FormData();
-    formData.append("photo", props.photo);
-    formData.append("desc", props.desc);
+    formData.append("photo", props.photoMovie);
+    formData.append("desc", props.titleMovie);
+    formData.append("desc", props.descMovie);
     formData.append("type", props.type);
 
     try {
@@ -18,12 +19,14 @@ export default async function PostPhoto(props) {
                 withCredentials: true,
             }
         );
-        props.notify(true, "Foto enviada com sucesso!");
-        props.setIsLoading(false); 
-        props.setRefresh(!props.refresh)
+
+        props.setIsLoading(false);
+        props.notify(true, "Filme enviado com sucesso!");
+        props.setRefresh(!props.refresh);
     } catch (error) {
         console.error("Error:", error);
         props.notify(false, "Erro: ação somente para admins");
         props.setIsLoading(false);
+
     }
 }

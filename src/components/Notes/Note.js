@@ -45,7 +45,7 @@ export default function Note(props) {
                                       onClick={() => handleClick(item)}
                                   >
                                         <i
-                                            class="fa-solid fa-pen update-icon"
+                                            className="fa-solid fa-pen update-icon"
                                             onClick={(event) => handleIconClick(event)}
                                         ></i>
                                         <div className="titulo">{item.title}</div>

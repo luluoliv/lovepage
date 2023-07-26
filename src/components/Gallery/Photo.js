@@ -39,7 +39,7 @@ function Photo(props) {
     return (
         <div className="photo-gallery">
             {loading ? (
-                <i class="photo-loading fa-solid fa-spinner fa-spin-pulse"></i>
+                <i className="photo-loading fa-solid fa-spinner fa-spin-pulse"></i>
             ) : photos && photos.length > 0 ? (
                 photos.sort(comparePhotosById).map((photo) => (
                     <div

@@ -110,7 +110,7 @@ export default function NoteChat(props) {
                         {note.title}
                     </h2>
                 ) : (
-                    <i class="photo-loading fa-solid fa-spinner fa-spin-pulse"></i>
+                    <i className="photo-loading fa-solid fa-spinner fa-spin-pulse"></i>
                 )
                 }
                 </>
