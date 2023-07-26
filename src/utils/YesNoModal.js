@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Modal, Col, Row } from "react-bootstrap";
 import "./YesNoModal.css";
 
@@ -23,24 +23,37 @@ export default function YesNoModal(props){
             </Modal.Header>
             <Modal.Body>
                 <Row>
-                    <Col>
+                    {props.isLoading ? (
                         <Button
                             className="modal-note-btn modal-button"
                             variant="outline-dark"
-                            onClick={() => props.yes()}
+                            disabled={true}
                         >
-                            Sim
+                            Carregando...
                         </Button>
-                    </Col>
-                    <Col>
-                        <Button
-                            className="modal-note-btn modal-button"
-                            variant="outline-dark"
-                            onClick={() => props.no()}
-                        >
-                            Não
-                        </Button>
-                    </Col>
+                    ) : (
+                        <>
+                        <Col>
+                            <Button
+                                className="modal-note-btn modal-button"
+                                variant="outline-dark"
+                                onClick={() => props.yes()}
+                            >
+                                Sim
+                            </Button>
+                        </Col>
+                        <Col>
+                            <Button
+                                className="modal-note-btn modal-button"
+                                variant="outline-dark"
+                                onClick={() => props.no()}
+                            >
+                                Não
+                            </Button>
+                        </Col>
+                        
+                        </>
+                    )}
                 </Row>
             </Modal.Body>
         </Modal>

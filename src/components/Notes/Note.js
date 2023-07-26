@@ -19,7 +19,9 @@ export default function Note(props) {
 
     useEffect(() => {
         GetNotes({ setNotes, setRefresh });
+
       }, [refresh, setNotes, setRefresh]);
+
 
     const handleStatusColor = (state) => {
         if (state === "0") {
@@ -35,9 +37,9 @@ export default function Note(props) {
     };
 
     return (
-            <div className="scroll-div">    
+            <div className="scroll-div-note">    
                 <div className="grid-container">
-                    {notes
+                    {notes && notes.length > 0
                         ? notes.map((item) => {
                               return (
                                   <div
@@ -57,7 +59,7 @@ export default function Note(props) {
                                   </div>
                               );
                           })
-                        : null}
+                        : <p className="note-alert">Nenhuma reclamação adicionada</p>}
                 </div>
             </div>
     );

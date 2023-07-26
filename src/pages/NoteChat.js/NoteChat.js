@@ -25,6 +25,7 @@ export default function NoteChat(props) {
     const [note, setNote] = useState();
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [deleteModalIsOpen, setDeleteModalIsOpen] = useState(false);
+    const [isLoading, setIsloading] = useState(false)
     const navigate = useNavigate();
 
     function openModal() {
@@ -53,6 +54,7 @@ export default function NoteChat(props) {
     }, [setNote]);
 
     const handleDeleteClick = async () =>{
+        setIsloading(true)
         try{
             await DeleteNoteChat({
                 setNote: setNote,
@@ -65,14 +67,16 @@ export default function NoteChat(props) {
         }catch{
             closeDeleteModal()
         }
-
+        setIsloading(false)
     }
 
     const handleResolvido = async () =>{
+        setIsloading(true)
         try{
             await PutNoteChat({
                 setNote: setNote,
-                notify: Notify
+                notify: Notify,
+                setIsloading: setIsloading
             })
             closeModal()
             setTimeout(() => {
@@ -81,6 +85,7 @@ export default function NoteChat(props) {
         }catch{
             closeModal()
         }
+        setIsloading(false)
     }
 
     return (
@@ -90,6 +95,7 @@ export default function NoteChat(props) {
                 show={modalIsOpen} 
                 onHide={closeModal}
                 msg={'Tem certeza que deseja marcar como resolvido?'} 
+                isLoading={isLoading}
                 yes={handleResolvido}
                 no={closeModal}
             />
@@ -99,6 +105,7 @@ export default function NoteChat(props) {
                 msg={'Tem certeza que deseja deletar essa reclamação?'} 
                 yes={handleDeleteClick}
                 no={closeDeleteModal}
+                isLoading={isLoading}
             />
 
             <NavBar />
@@ -106,18 +113,20 @@ export default function NoteChat(props) {
                 
                 <>
                 {note ? (
-                    <h2>
-                        {note.title}
-                    </h2>
+                    <>
+                        <h2>
+                            {note.title}
+                        </h2>
+                        <Chat
+                           openModal={openModal}
+                           openDeleteModal={openDeleteModal}
+                        />
+                    </>
                 ) : (
                     <i className="photo-loading fa-solid fa-spinner fa-spin-pulse"></i>
                 )
                 }
                 </>
-                <Chat
-                    openModal={openModal}
-                    openDeleteModal={openDeleteModal}
-                 />
             </div>
         </div>
     );

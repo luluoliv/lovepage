@@ -1,9 +1,8 @@
-.table{
+.note-table{
     width: auto;
     margin-left: 5%;
     margin-right: 10%;
     margin-top: 20px;
-    
 }
 
 .notes-column{
@@ -11,7 +10,17 @@
     width: 80%;
 }
 
-table tr td:nth-child(2) {
+.note-tr {
+    margin: 0;
+    padding: 0;
+}
+
+.note-td {
+    vertical-align: top;
+    padding: 0;
+}
+
+.note-table tr td:nth-child(2) {
     width: 300px;
 }
 

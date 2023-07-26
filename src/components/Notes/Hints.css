@@ -8,9 +8,7 @@
     border-spacing: 40px;
 }
 
-
-
-td{
+.hint-table td{
     border-top: none;
     border-bottom: none;
     align-items: left;

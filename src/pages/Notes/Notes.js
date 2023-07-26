@@ -19,13 +19,13 @@ export default function Notes() {
                 setRefresh={setRefresh}
                 refresh={refresh}
             />
-            <table className="table">
+            <table className="note-table">
                 <tbody>
-                    <tr>
-                        <td className="notes-column">
+                    <tr className="note-tr">
+                        <td className="notes-column note-td">
                             <Note setRefresh={setRefresh} refresh={refresh} />
                         </td>
-                        <td className="hints">
+                        <td className="hints note-td">
                             <Hints />
                         </td>
                     </tr>
