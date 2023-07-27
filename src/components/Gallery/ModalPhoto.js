@@ -21,7 +21,7 @@ function ModalPhoto({ photo, show, onClose, setRefresh, refresh }) {
     };
 
     return (
-        <Modal show={show} onHide={onClose} className="modal-photo" size="md">
+        <Modal show={show} onHide={onClose} className="modal-photo" centered>
             <Modal.Body className="modal-photo-content">
                 <img
                     className="modal-photo-img"

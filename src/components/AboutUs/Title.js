@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
+import "./Title.css";
 
 export default function AboutUsTitle() {
-
-    return(
-        <div className="content">
-            <h2 className="title">Sobre nós</h2>
+    return (
+        <div className="about-us">
+            <h2 className="about-us-title">Sobre nós</h2>
         </div>
-    )
+    );
 }

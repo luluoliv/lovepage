@@ -1,0 +1,12 @@
+.about-us-title{
+    color: #efefef;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.about-us{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

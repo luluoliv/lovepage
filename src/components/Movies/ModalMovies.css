@@ -2,11 +2,22 @@
     height: 50px;
 }
 
+.movie-search{
+    resize: none;
+}
+
+.suggestions-visible{
+    border-bottom-left-radius:  0;
+    border-bottom-right-radius:  0;
+}
+
 .movie-suggestions{
-    overflow: auto;
     max-height: 200px;
-    background-color: #ffff;
+    
+    overflow: auto;
+    background-color: #efefef;
     color: #252525;
+    border-radius: 0px 0px 10px 10px;
 }
 
 .movie-suggestion{

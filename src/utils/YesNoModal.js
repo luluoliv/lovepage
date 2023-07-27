@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Modal, Col, Row } from "react-bootstrap";
 import "./YesNoModal.css";
 

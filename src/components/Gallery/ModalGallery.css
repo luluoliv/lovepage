@@ -23,6 +23,10 @@
     border-radius: 15px;
 }
 
+.modal-gallery-textarea{
+    resize: none;
+}
+
 .modal-gallery-file:focus,
 .modal-gallery-textarea:focus {
     outline: none;

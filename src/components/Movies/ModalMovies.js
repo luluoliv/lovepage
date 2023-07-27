@@ -1,12 +1,13 @@
-import { Dropdown, Modal } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { ToastContainer } from "react-toastify";
+import { Dropdown, Modal, Form, Button } from "react-bootstrap";
 
-import GetMovies from "../../hooks/Movies/GetMovies";
-
-import "./ModalMovies.css";
 import { Notify } from "../../utils/Notify";
+import GetMovies from "../../hooks/Movies/GetMovies";
 import PostMovies from "../../hooks/Movies/PostMovies";
+
+import "react-toastify/dist/ReactToastify.css";
+import "./ModalMovies.css";
 
 function ModalMovies(props) {
     const [movies, setMovies] = useState([]);
@@ -18,37 +19,13 @@ function ModalMovies(props) {
     const [isLoading, setIsLoading] = useState(false);
     const { refresh, setRefresh } = props;
 
-    useEffect(() => {
-        if (searchTerm.trim() !== "") {
-            getMovies();
-        } else {
-            setMovies([]);
-            setSuggestionsVisible(false);
-        }
-    }, [searchTerm]);
-
-    const getMovies = async () => {
-        await GetMovies({
-            setIsLoading: setIsLoading,
-            setMovies: setMovies,
-            setSuggestionsVisible: setSuggestionsVisible,
-            searchTerm: searchTerm,
-        });
-    };
-
-    const handleSelectMovie = (movie) => {
-        setSelectedMovie(movie);
-        setSearchTerm(movie.title);
-        setSuggestionsVisible(false);
-    };
-
     const postMovie = async () => {
         setIsLoading(true);
 
         await PostMovies({
-            photoMovie: selectedMovie.poster_path,
-            titleMovie: selectedMovie.title,
-            descMovie: selectedMovie.overview,
+            banner: selectedMovie.poster_path,
+            title: selectedMovie.title,
+            desc: selectedMovie.overview,
             type: "filme",
             setIsLoading: setIsLoading,
             notify: Notify,
@@ -59,8 +36,33 @@ function ModalMovies(props) {
         props.onHide();
     };
 
+    useEffect(() => {
+        if (searchTerm.trim() !== "") {
+            GetMovies({
+                setIsLoading: setIsLoading,
+                setMovies: setMovies,
+                setSuggestionsVisible: setSuggestionsVisible,
+                searchTerm: searchTerm,
+            });
+        } else {
+            setMovies([]);
+            setSuggestionsVisible(false);
+        }
+    }, [searchTerm]);
+
+    const handleSelectMovie = (movie) => {
+        setSelectedMovie({
+            poster_path: movie.poster_path,
+            title: movie.title,
+            overview: movie.overview,
+        });
+        setSearchTerm(movie.title);
+        setSuggestionsVisible(false);
+    };
+
     return (
         <>
+            <ToastContainer />
             <Modal
                 className="modal-note"
                 {...props}
@@ -85,7 +87,11 @@ function ModalMovies(props) {
                         >
                             <Form.Label>Procurar</Form.Label>
                             <Form.Control
-                                className="movie-search modal-note-textarea"
+                                className={`movie-search modal-note-textarea ${
+                                    suggestionsVisible
+                                        ? "suggestions-visible"
+                                        : ""
+                                }`}
                                 as="textarea"
                                 rows={1}
                                 value={searchTerm}
@@ -104,7 +110,7 @@ function ModalMovies(props) {
                                             <img
                                                 className="movie-img"
                                                 src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-                                                alt={movie.title}
+                                                alt={""}
                                             />
                                             {movie.title}
                                         </Dropdown.Item>

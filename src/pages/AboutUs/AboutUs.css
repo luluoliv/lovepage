@@ -1,0 +1,48 @@
+.about-us-content {
+    color: #efefef;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    background: linear-gradient(454deg, #804646cc, #e08181cc);
+    scroll-snap-align: start;
+}
+
+.about-us-text {
+    font-size: 2em;
+    font-weight: 600;
+    max-width: 650px;
+    transition: transform 0.3s;
+}
+
+.about-us-text:hover {
+    transform: scale(1.1);
+}
+
+.about-us-section-1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-us-section-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.about-us-btn{
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    color: #efefef;
+}
