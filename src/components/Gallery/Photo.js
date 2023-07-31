@@ -54,7 +54,7 @@ function Photo(props) {
                         )}
                         <img
                             className="photo-img"
-                            src={photo.photo}
+                            src={photo.photo_file}
                             alt={photo.desc}
                         />
                     </div>

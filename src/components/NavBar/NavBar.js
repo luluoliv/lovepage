@@ -60,16 +60,16 @@ export default function NavBar() {
                             </Nav.Link>
                         </Nav>
                         <Nav>
-                            <a
+                            <Link
+                                to="/"
                                 onClick={handleClickLogout}
-                                href="/"
                                 className="nav-link"
                             >
                                 <i
                                     className="fa-solid fa-right-from-bracket"
                                     style={{ color: "grey" }}
                                 ></i>
-                            </a>
+                            </Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

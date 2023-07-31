@@ -25,7 +25,7 @@ function ModalPhoto({ photo, show, onClose, setRefresh, refresh }) {
             <Modal.Body className="modal-photo-content">
                 <img
                     className="modal-photo-img"
-                    src={currentPhoto.photo}
+                    src={currentPhoto.photo_file}
                     alt={currentPhoto.desc}
                 />
                 <div className="modal-photo-btns">
