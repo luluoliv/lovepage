@@ -20,10 +20,11 @@ function ModalMovies(props) {
     const { refresh, setRefresh } = props;
 
     const postMovie = async () => {
+        console.log("postMovie function is executing.");
         setIsLoading(true);
 
         await PostMovies({
-            banner: selectedMovie.poster_path,
+            banner: `https://image.tmdb.org/t/p/w200${selectedMovie.poster_path}`,
             title: selectedMovie.title,
             desc: selectedMovie.overview,
             type: "filme",
@@ -42,7 +43,7 @@ function ModalMovies(props) {
                 setIsLoading: setIsLoading,
                 setMovies: setMovies,
                 setSuggestionsVisible: setSuggestionsVisible,
-                searchTerm: searchTerm,
+                search: searchTerm,
             });
         } else {
             setMovies([]);
@@ -51,6 +52,7 @@ function ModalMovies(props) {
     }, [searchTerm]);
 
     const handleSelectMovie = (movie) => {
+        console.log("Selected Movie:", selectedMovie);
         setSelectedMovie({
             poster_path: movie.poster_path,
             title: movie.title,

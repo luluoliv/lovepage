@@ -2,16 +2,12 @@ import axios from "axios";
 
 export default async function PostMovies(props) {
     const formData = new FormData();
+    formData.append("photo_url", props.banner);
     formData.append("name", props.title);
     formData.append("desc", props.desc);
     formData.append("type", props.type);
 
     try {
-        const response = await fetch(props.banner);
-        const blob = await response.blob();
-
-        formData.append("photo", blob, "movie_photo.jpg");
-
         await axios.post(
             "https://love-pageapi.onrender.com/features/",
             formData,

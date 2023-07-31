@@ -25,7 +25,7 @@ export default function Movie(props) {
                     <div className="movie-item" key={movie.id}>
                         <img
                             className="movie-img"
-                            src={movie.photo}
+                            src={movie.photo_url}
                             alt={movie.name}
                         />
                         <p>{movie.name}</p>

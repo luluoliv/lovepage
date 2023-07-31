@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default async function PostPhoto(props) {
     const formData = new FormData();
-    formData.append("photo", props.photo);
+    formData.append("photo_file", props.photo);
     formData.append("desc", props.desc);
     formData.append("type", props.type);
 
