@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"; 
+import React, { useEffect, useState } from "react";
 
 import GetFeatureByType from "../../hooks/Features/GetFeatureByType";
 import "./Movie.css";
@@ -12,7 +12,7 @@ export default function Movie(props) {
         GetFeatureByType({
             setFeature: setMovies,
             setLoading: setLoading,
-            type: 'filme'
+            type: "filme",
         });
     }, [refresh, setRefresh]);
 
@@ -33,12 +33,20 @@ export default function Movie(props) {
                             alt={movie.name}
                         />
                         <div className="text-div">
-                            {
-                                movie.name ? (
-                                    <p style={{fontWeight:'bold'}}>{movie.name}</p>
-                                ) : <p style={{fontWeight:'300', fontStyle:'italic'}}>Título indefinido</p>
-                            }
-                            <p>{movie.desc}</p>
+                            {movie.name ? (
+                                <p style={{ fontWeight: "bold" }}>
+                                    {movie.name}
+                                </p>
+                            ) : (
+                                <p
+                                    style={{
+                                        fontWeight: "300",
+                                        fontStyle: "italic",
+                                    }}
+                                >
+                                    Título indefinido
+                                </p>
+                            )}
                         </div>
                     </div>
                 ))
