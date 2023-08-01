@@ -4,6 +4,12 @@ import "./YesNoModal.css";
 
 export default function YesNoModal(props){
 
+    //info nedded to use it
+    //msg
+    //isLoading
+    //yes()
+    //no()
+
     return(
         <Modal
             className="modal-note"

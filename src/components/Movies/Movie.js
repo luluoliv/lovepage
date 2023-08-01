@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"; 
 
-import GetMyMovies from "../../hooks/Movies/GetMyMovies";
+import GetFeatureByType from "../../hooks/Features/GetFeatureByType";
 import "./Movie.css";
 
 export default function Movie(props) {
@@ -9,7 +9,11 @@ export default function Movie(props) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        GetMyMovies({ setMovies, setLoading });
+        GetFeatureByType({
+            setFeature: setMovies,
+            setLoading: setLoading,
+            type: 'filme'
+        });
     }, [refresh, setRefresh]);
 
     const compareMoviesById = (a, b) => {

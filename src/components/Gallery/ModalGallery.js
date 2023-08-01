@@ -3,7 +3,7 @@ import { Form, Button, Modal } from "react-bootstrap";
 import { React, useState } from "react";
 import { Notify } from "../../utils/Notify";
 
-import PostPhoto from "../../hooks/Gallery/PostPhotos";
+import PostFeature from "../../hooks/Features/PostFeature";
 
 import "react-toastify/dist/ReactToastify.css";
 import "./ModalGallery.css";
@@ -15,10 +15,11 @@ function ModalGallery(props) {
     const { refresh, setRefresh } = props;
 
     const postPhoto = async () => {
-        setIsLoading(true);
+        setIsLoading(!isLoading);
 
-        await PostPhoto({
-            photo: photoFile,
+        await PostFeature({
+            isPhotoUrl: false,
+            photo_file: photoFile,
             desc: desc,
             type: 'mural',
             setIsLoading: setIsLoading,

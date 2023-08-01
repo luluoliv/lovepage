@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export default async function PostPhoto(props) {
+export default async function PostFeature(props){
     const formData = new FormData();
-    formData.append("photo_file", props.photo);
+    props.isPhotoUrl ? formData.append("photo_url", props.photo_url) : formData.append("photo_file", props.photo_file)
     formData.append("desc", props.desc);
     formData.append("type", props.type);
 
@@ -18,7 +18,7 @@ export default async function PostPhoto(props) {
                 withCredentials: true,
             }
         );
-        props.notify(true, "Foto enviada com sucesso!");
+        props.notify(true, "Feature enviada com sucesso!");
         props.setIsLoading(false); 
         props.setRefresh(!props.refresh)
     } catch (error) {

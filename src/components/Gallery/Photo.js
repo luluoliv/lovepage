@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ModalPhoto from "./ModalPhoto";
-import GetPhotos from "../../hooks/Gallery/GetPhotos";
+import GetFeatureByType from "../../hooks/Features/GetFeatureByType";
 
 import "./../../components/Gallery/Photo.css";
 
@@ -11,7 +11,11 @@ function Photo(props) {
     const { refresh, setRefresh } = props;
 
     useEffect(() => {
-        GetPhotos({ setPhotos, setLoading });
+        GetFeatureByType({
+            setFeature: setPhotos,
+            setLoading: setLoading, 
+            type: 'mural'
+        });
     }, [refresh, setRefresh]);
 
     const [hoveredPhotoId, setHoveredPhotoId] = useState(null);

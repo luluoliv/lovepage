@@ -1,27 +1,43 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 
-import DeletePhotos from "../../hooks/Gallery/DeletePhotos";
+import DeleteFeature from "../../hooks/Features/DeleteFeature";
+import YesNoModal from "../../utils/YesNoModal";
 import { Notify } from "../../utils/Notify";
 
 import "./ModalPhoto.css";
 
 function ModalPhoto({ photo, show, onClose, setRefresh, refresh }) {
     const [currentPhoto, setPhoto] = useState(photo);
+    const [isLoading, setIsLoading] = useState(false);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const handleDeletePhoto = (photoId) => {
-        DeletePhotos({
-            photoId: photoId,
+        setIsLoading(!isLoading)
+        DeleteFeature({
+            featureId: photoId,
             setPhoto: setPhoto,
             notify: Notify,
             closeModal: onClose,
             setRefresh: setRefresh,
             refresh: refresh,
         });
+        setIsLoading(!isLoading)
     };
+
 
     return (
         <Modal show={show} onHide={onClose} className="modal-photo" centered>
+
+            <YesNoModal
+                show={modalIsOpen} 
+                onHide={() => setModalIsOpen(!modalIsOpen)}
+                msg={'Tem certeza que deseja deletar essa foto?'} 
+                isLoading={isLoading}
+                yes={() => handleDeletePhoto(currentPhoto.id)}
+                no={() => setModalIsOpen(!modalIsOpen)}
+            />
+
             <Modal.Body className="modal-photo-content">
                 <img
                     className="modal-photo-img"
@@ -31,7 +47,7 @@ function ModalPhoto({ photo, show, onClose, setRefresh, refresh }) {
                 <div className="modal-photo-btns">
                     <Button
                         className="modal-delete-btn"
-                        onClick={() => handleDeletePhoto(currentPhoto.id)}
+                        onClick={() => setModalIsOpen(!modalIsOpen)}
                     >
                         <i className="fa-solid fa-trash-can"></i>
                     </Button>

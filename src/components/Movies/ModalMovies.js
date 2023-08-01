@@ -3,8 +3,8 @@ import { ToastContainer } from "react-toastify";
 import { Dropdown, Modal, Form, Button } from "react-bootstrap";
 
 import { Notify } from "../../utils/Notify";
-import GetMovies from "../../hooks/Movies/GetMovies";
-import PostMovies from "../../hooks/Movies/PostMovies";
+import GetMovies from "../../hooks/MovieDB/GetMovies";
+import PostFeature from "../../hooks/Features/PostFeature";
 
 import "react-toastify/dist/ReactToastify.css";
 import "./ModalMovies.css";
@@ -20,12 +20,12 @@ function ModalMovies(props) {
     const { refresh, setRefresh } = props;
 
     const postMovie = async () => {
-        console.log("postMovie function is executing.");
         setIsLoading(true);
 
-        await PostMovies({
-            banner: `https://image.tmdb.org/t/p/w200${selectedMovie.poster_path}`,
-            title: selectedMovie.title,
+        await PostFeature({
+            isPhotoUrl: true,
+            photo_url: `https://image.tmdb.org/t/p/w200${selectedMovie.poster_path}`,
+            name: selectedMovie.title,
             desc: selectedMovie.overview,
             type: "filme",
             setIsLoading: setIsLoading,

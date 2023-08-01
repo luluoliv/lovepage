@@ -1,11 +1,11 @@
 import axios from "axios";
 
-export default async function DeletePhotos(props) {
-    const { photoId } = props;
+export default async function DeleteFeature(props){
+    const { featureId } = props;
 
     try {
         await axios.delete(
-            `https://love-pageapi.onrender.com/features/detail/${photoId}/`,
+            `https://love-pageapi.onrender.com/features/detail/${featureId}/`,
             {
                 headers: {
                     Authorization: "Token " + localStorage.getItem("token"),
@@ -27,4 +27,5 @@ export default async function DeletePhotos(props) {
         }
 
     }
+    
 }
