@@ -32,8 +32,14 @@ export default function Movie(props) {
                             src={movie.photo_url}
                             alt={movie.name}
                         />
-                        <p>{movie.name}</p>
-                        <p>{movie.desc}</p>
+                        <div className="text-div">
+                            {
+                                movie.name ? (
+                                    <p style={{fontWeight:'bold'}}>{movie.name}</p>
+                                ) : <p style={{fontWeight:'300', fontStyle:'italic'}}>Título indefinido</p>
+                            }
+                            <p>{movie.desc}</p>
+                        </div>
                     </div>
                 ))
             ) : (
