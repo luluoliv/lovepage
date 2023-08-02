@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import GetNotes from "../../hooks/Notes/GetNotes"; 
+import { Form, Button, Modal } from "react-bootstrap"; 
+import UpdateModal from "./UpdateModal";
+
 import "./Note.css";
 
 export default function Note(props) {
     const navigate = useNavigate();
 
     const { refresh, setRefresh } = props
+
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
+    const toggleModal = () => setModalIsOpen(!modalIsOpen);
+    const [updateInfo, setUpdateInfo] = useState([])
      
     function handleClick(item) {
         localStorage.setItem("note_id", item.id);
@@ -31,9 +39,10 @@ export default function Note(props) {
         }
     };
 
-    const handleIconClick = (event) => {
+    const handleIconClick = (event, data) => {
         event.stopPropagation();
-        console.log('Clicado')
+        setUpdateInfo(data)
+        toggleModal()
     };
 
     return (
@@ -48,7 +57,11 @@ export default function Note(props) {
                                   >
                                         <i
                                             className="fa-solid fa-pen update-icon"
-                                            onClick={(event) => handleIconClick(event)}
+                                            onClick={(event) => handleIconClick(event, {
+                                                title: item.title,
+                                                state: item.state,
+                                                id: item.id
+                                                })}
                                         ></i>
                                         <div className="titulo">{item.title}</div>
                                         <div
@@ -61,6 +74,16 @@ export default function Note(props) {
                           })
                         : <p className="note-alert">Nenhuma reclamação adicionada</p>}
                 </div>
+
+                {modalIsOpen && (
+                <UpdateModal
+                    onHide={() => setModalIsOpen(false)}
+                    show={modalIsOpen}
+                    setRefresh={setRefresh}
+                    refresh={refresh}
+                    updateInfo={updateInfo}
+                />
+                )}
             </div>
     );
 }
