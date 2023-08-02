@@ -7,7 +7,7 @@ export default function AboutUs() {
     return (
         <>
             <div className="about-us-content">
-                <section className="about-us-section-1">
+                <section className="about-us-section">
                     <div className="about-us-section-header">
                         <button className="about-us-btn">
                             <i class="fa-solid fa-chevron-left"></i>
@@ -21,13 +21,13 @@ export default function AboutUs() {
                         vocês.
                     </p>
                 </section>
-                <section className="about-us-section-2">
+                <section className="about-us-section">
                     <p className="about-us-text">
                         Estamos empolgados em apresentar uma prévia do que o
                         nosso site tem a oferecer.
                     </p>
                 </section>
-                <section className="about-us-section-3">
+                <section className="about-us-section">
                     <p className="about-us-text">
                         Nossa jornada começou com a simples ideia de criar um
                         espaço único para casais compartilharem momentos
@@ -37,7 +37,7 @@ export default function AboutUs() {
                     </p>
                 </section>
 
-                <section>
+                <section className="about-us-section">
                     <p className="about-us-text">
                         A LovingDevs será o seu lugar para eternizar memórias
                         inesquecíveis. Você poderá criar álbuns personalizados
@@ -47,7 +47,7 @@ export default function AboutUs() {
                     </p>
                 </section>
 
-                <section>
+                <section className="about-us-section">
                     <p className="about-us-text">
                         Estamos trabalhando arduamente para garantir que a
                         LovingDevs seja um ambiente seguro e acolhedor, onde
@@ -58,7 +58,7 @@ export default function AboutUs() {
                     </p>
                 </section>
 
-                <section>
+                <section className="about-us-section">
                     <p className="about-us-text">
                         Agradecemos por nos acompanhar nesta jornada até aqui.
                         Mal podemos esperar para compartilhar o verdadeiro poder

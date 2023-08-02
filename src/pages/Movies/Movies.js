@@ -5,13 +5,15 @@ import TitlePage from "../../components/TitlePage/TitlePage";
 import NavBar from "../../components/NavBar/NavBar";
 import Movie from "../../components/Movies/Movie";
 
+import './Movies.css';
+
 
 export default function Movies() {
     const [refresh, setRefresh] = useState(false);
 
     return (
         <>
-            <div style={divStyle}>
+            <div className="movies-page" style={divStyle}>
                 <NavBar />
                 <TitlePage
                     name="Filmes"

@@ -12,14 +12,14 @@ export default function Gallery() {
 
     return (
         <>
-            <div style={divStyle}>
+            <div className="gallery-page" style={divStyle}>
                 <NavBar />
                 <TitlePage
                     name="Galeria"
                     refresh={refresh}
                     setRefresh={setRefresh}
                 />
-                <div className="photos">
+                <div>
                     <Photo refresh={refresh} setRefresh={setRefresh} />
                 </div>
             </div>
