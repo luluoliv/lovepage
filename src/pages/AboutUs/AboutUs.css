@@ -7,7 +7,7 @@
     scroll-snap-type: y mandatory;
 }
 
-section {
+.about-us-section {
     width: 100%;
     height: 100vh;
     display: flex;
