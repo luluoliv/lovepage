@@ -19,8 +19,6 @@ export default function Chat(props) {
         });
     }, [chatMessages, setChatMessages, note_id]);
 
-    //console.log(chatMessages)
-
     const handleClick = async () => {
         await PostNoteChats({
             note_id: note_id,
@@ -34,17 +32,16 @@ export default function Chat(props) {
     };
 
     function handleClassName(user) {
-        if (user === localStorage.getItem("user_id")) {
+        if (user == localStorage.getItem("user_id")) {
             return "sent-content mt-5";
-        } else {
-            return "received-content mt-5";
         }
+        return "received-content mt-5";
     }
 
     return (
         <>
             {chatMessages ? (
-                chatMessages === undefined || chatMessages.length === 0 ? (
+                chatMessages == undefined || chatMessages.length == 0 ? (
                     <>
                         <div className="first-message mt-4">
                             <span>Adicione a primeira mensagem.</span>
@@ -85,7 +82,7 @@ export default function Chat(props) {
                                         <div className="usuario">
                                             <i className="fa-solid fa-circle-user fa-4x"></i>
                                             <span className="nome">
-                                                {item.user === "2"
+                                                {item.user == "2"
                                                     ? "Guizen"
                                                     : "Lulu"}
                                             </span>

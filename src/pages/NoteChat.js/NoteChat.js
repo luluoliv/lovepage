@@ -113,17 +113,22 @@ export default function NoteChat(props) {
                 
                 <>
                 {note ? (
-                    <>
-                        <h2>
-                            {note.title}
-                        </h2>
+                    <>     
+                        <div className="title-div">
+                            <i class="fa-solid fa-arrow-left" onClick={()=> navigate('/notes')}></i>
+                            <h2>
+                                {note.title}
+                            </h2>
+                        </div>
                         <Chat
                            openModal={openModal}
                            openDeleteModal={openDeleteModal}
                         />
                     </>
                 ) : (
-                    <i className="photo-loading fa-solid fa-spinner fa-spin-pulse"></i>
+                    <div className="loading-icon">
+                        <i className="photo-loading fa-solid fa-spinner fa-spin-pulse"></i>
+                    </div>
                 )
                 }
                 </>
