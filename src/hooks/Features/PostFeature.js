@@ -1,6 +1,13 @@
 import axios from "axios";
 
 export default async function PostFeature(props){
+    //isPhotoUrl
+    //name
+    //photo_url
+    //photo_file
+    //desc
+    //type
+
     const formData = new FormData();
     props.name && formData.append("name", props.name)
     props.isPhotoUrl ? formData.append("photo_url", props.photo_url) : formData.append("photo_file", props.photo_file)

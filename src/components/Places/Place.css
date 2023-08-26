@@ -1,0 +1,91 @@
+.place-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin: 1% 5% 0 5%;
+}
+
+.photo-item {
+    position: relative;
+    display: inline-block;
+}
+
+.photo-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.photo-item:hover::before {
+    opacity: 1; /* Show the overlay on hover */
+}
+
+.photo-loading {
+    font-size: 2em;
+    margin: 50px auto;
+}
+
+.photo-desc {
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.photo-desc::before {
+    content: attr(data-title);
+    position: absolute;
+    bottom: 25px; /* Posicionamento vertical */
+    padding: 5px 10px;
+    background-color: rgba(255, 255, 255, 0.349);
+    color: white;
+    border-radius: 5px;
+    font-size: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.photo-desc:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+.photo-desc:hover {
+    color: rgb(76, 79, 248);
+}
+
+.delete-icon{
+    color: white;
+}
+
+.delete-icon:hover{
+    color: red
+}
+
+.hover-div {
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+}
+
+.delete-icon-div{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.photo-desc-div{
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

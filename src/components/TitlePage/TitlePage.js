@@ -4,6 +4,7 @@ import "./TitlePage.css";
 import ModalGallery from "../../components/Gallery/ModalGallery";
 import ModalNotes from "../../components/Notes/ModalNotes";
 import ModalMovies from "../../components/Movies/ModalMovies";
+import ModalPlaces from "../../components/Places/ModalPlaces";
 
 function TitlePage(props) {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -35,6 +36,15 @@ function TitlePage(props) {
             case "Filmes":
                 return (
                     <ModalMovies
+                        show={modalIsOpen}
+                        onHide={closeModal}
+                        refresh={refresh}
+                        setRefresh={setRefresh}
+                    />
+                );
+            case "Lugares":
+                return (
+                    <ModalPlaces
                         show={modalIsOpen}
                         onHide={closeModal}
                         refresh={refresh}
