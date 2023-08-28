@@ -34,7 +34,7 @@ function ModalGallery(props) {
     return (
         <>
             <ToastContainer />
-            <Modal
+            <Modal 
                 className="modal-gallery"
                 {...props}
                 aria-labelledby="contained-modal-title-vcenter"

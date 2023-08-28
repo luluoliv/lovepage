@@ -12,8 +12,8 @@ export default function Place(props){
     const { refresh, setRefresh } = props;
     const [hoveredPlaceId, setHoveredPlaceId] = useState(null);
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [currentPlaceId, setCurrentPlaceId] = useState(null)
-    const [modalLoading, setModalLoading] = useState(false)
+    const [currentPlaceId, setCurrentPlaceId] = useState(null);
+    const [modalLoading, setModalLoading] = useState(false);
 
     useEffect(() => {
         GetFeatureByType({
@@ -23,8 +23,8 @@ export default function Place(props){
         });
     }, [refresh, setRefresh]);
 
-    const handleMouseEnter = (plceId) => {
-        setHoveredPlaceId(plceId);
+    const handleMouseEnter = (placeId) => {
+        setHoveredPlaceId(placeId);
     };
 
     const handleMouseLeave = () => {
