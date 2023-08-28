@@ -62,3 +62,31 @@
         font-size: 1.5em;
     }
 }
+
+/* Tooltip aparece somente em dispositivos com mouse */
+@media screen and (min-width: 769px) {
+    .nav-item {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .nav-item::before {
+        content: attr(data-title);
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        padding: 5px 10px;
+        background-color: rgba(139, 139, 139, 0.514);
+        color: white;
+        border-radius: 5px;
+        font-size: 10px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    
+    .nav-item:hover::before {
+        opacity: 1;
+        visibility: visible;
+    }
+}
