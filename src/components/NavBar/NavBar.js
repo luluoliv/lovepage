@@ -23,37 +23,37 @@ export default function NavBar() {
                     </Navbar.Toggle>
                     <Navbar.Collapse id="navbar-collapse-content navbarNav">
                         <Nav className="m-auto">
-                            <Nav.Link>
+                            <Nav.Link className="nav-item" data-title='Home'>
                                 <Link to={"/home"} className="nav-link">
                                     <i className="fa-solid fa-house"></i>
                                 </Link>
                             </Nav.Link>
-                            <Nav.Link>
+                            <Nav.Link className="nav-item" data-title='Galeria'>
                                 <Link to={"/gallery"} className="nav-link">
                                     <i className="fa-solid fa-images"></i>
                                 </Link>
                             </Nav.Link>
-                            <Nav.Link>
+                            <Nav.Link className="nav-item" data-title='Jogos'>
                                 <Link to={"/games"} className="nav-link">
                                     <i className="fa-solid fa-gamepad"></i>
                                 </Link>
                             </Nav.Link>
-                            <Nav.Link>
+                            <Nav.Link className="nav-item" data-title='Lugares'>
                                 <Link to={"/places"} className="nav-link">
                                     <i className="fa-solid fa-earth-americas"></i>
                                 </Link>
                             </Nav.Link>
-                            <Nav.Link>
+                            <Nav.Link className="nav-item" data-title='Filmes'>
                                 <Link to={"/movies"} className="nav-link">
                                     <i className="fa-solid fa-ticket"></i>
                                 </Link>
                             </Nav.Link>
-                            <Nav.Link>
+                            <Nav.Link className="nav-item" data-title='Reclamações'>
                                 <Link to={"/notes"} className="nav-link">
                                     <i className="fa-solid fa-note-sticky"></i>
                                 </Link>
                             </Nav.Link>
-                            <Nav.Link>
+                            <Nav.Link className="nav-item" data-title='Sobre Nós'>
                                 <Link to={"/aboutus"} className="nav-link">
                                     <i className="fa-solid fa-circle-user"></i>
                                 </Link>
