@@ -64,6 +64,12 @@
     transform: translateY(30px);
     transition: 0.4s ease-out;
     text-align: center;
+    overflow: hidden;
+    overflow-wrap: break-word;
+}
+
+.photo-desc:hover{
+    color: #d9d9d9;
 }
 
 .photo-item:hover .photo-desc {
