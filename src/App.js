@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import React from "react";
 
 import "./App.css";
-import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
 import Notes from "./pages/Notes/Notes";
 import Gallery from "./pages/Gallery/Gallery";
@@ -11,11 +10,15 @@ import Games from "./pages/Games/Games";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import Places from "./pages/Places/Places";
 import Movies from "./pages/Movies/Movies";
+import InitialPage from "./pages/InitialPage/InitialPage";
+import Login from "./pages/Login/Login";
+
 
 function App() {
     return (
         <Routes>
-            <Route path="/" element={<Login />} />
+            <Route path="/" element={<InitialPage />} />
+            <Route path="/login" element={<Login/>} />
             <Route path="/home" element={<Home />} />
             <Route path="/notes" element={<Notes />} />
             <Route path="/gallery" element={<Gallery />} />

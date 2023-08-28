@@ -28,7 +28,7 @@ export default function Movie(props) {
                 movies.sort(compareMoviesById).map((movie) => (
                     <div className="movie-item" key={movie.id}>
                         <img
-                            className="movie-img"
+                            className={'movie-img'}
                             src={movie.photo_url}
                             alt={movie.name}
                         />
