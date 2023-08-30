@@ -39,14 +39,14 @@
 }
 
 .photo-desc::before {
-    content: attr(data-title);
+    content: attr(title);
     position: absolute;
     bottom: 25px; /* Posicionamento vertical */
     padding: 5px 10px;
     background-color: rgba(255, 255, 255, 0.349);
     color: white;
     border-radius: 5px;
-    font-size: 10px;
+    font-size: 9px;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;

@@ -90,7 +90,7 @@ export default function Place(props){
                                         <p 
                                             className="photo-desc"
                                             onClick={()=> searchPlace(place.desc)}
-                                            data-title="Pesquisar lugar"
+                                            title="Pesquisar lugar"
                                         >
                                             {place.desc}
                                         </p>

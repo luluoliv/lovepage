@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./TitlePage.css";
 
-import ModalGallery from "../../components/Gallery/ModalGallery";
-import ModalNotes from "../../components/Notes/ModalNotes";
-import ModalMovies from "../../components/Movies/ModalMovies";
-import ModalPlaces from "../../components/Places/ModalPlaces";
+import ModalGallery from "../Gallery/ModalGallery";
+import ModalNotes from "../Notes/ModalNotes";
+import ModalMovies from "../Movies/ModalMovies";
+import ModalPlaces from "../Places/ModalPlaces";
+import ModalGames from "../Games/ModalGames";
 
 function TitlePage(props) {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -45,6 +46,15 @@ function TitlePage(props) {
             case "Lugares":
                 return (
                     <ModalPlaces
+                        show={modalIsOpen}
+                        onHide={closeModal}
+                        refresh={refresh}
+                        setRefresh={setRefresh}
+                    />
+                );
+            case "Jogos": 
+                return (
+                    <ModalGames
                         show={modalIsOpen}
                         onHide={closeModal}
                         refresh={refresh}

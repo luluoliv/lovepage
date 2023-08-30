@@ -1,0 +1,80 @@
+.game-photo {
+    border-radius: 10px;
+    width: 120px;
+    height: 150px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.game-photo:hover {
+    opacity: 0.8;
+}
+
+.grid-div {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+}
+
+.embla {
+    width: 100%;
+    overflow:hidden;
+    gap: 10px;
+}
+
+.embla__container {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+.embla__slide {
+    width: 100%;
+    flex: 0 0 100%;
+}
+
+.first-image{
+    margin-left: 10px;
+}
+
+.game-item {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.game-name {
+    position: absolute;
+    width: 90%;
+    display: flex;
+    margin: 0;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    cursor: pointer;
+}
+
+.game-photo:hover + .game-name {
+    opacity: 1;
+    visibility: visible;
+}
+
+.game-name:hover{
+    opacity: 1;
+    visibility: visible;
+}
+
+.selected-game{
+    border: 2px solid; /* Set the initial border */
+    border-color: rgb(133, 113, 5); /* Border colors: top = #f00, bottom = transparent */
+    border-radius: 10px;
+}

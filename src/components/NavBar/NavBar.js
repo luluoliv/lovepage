@@ -55,7 +55,7 @@ export default function NavBar() {
                             </Nav.Link>
                             <Nav.Link className="nav-item" data-title='Sobre Nós'>
                                 <Link to={"/aboutus"} className="nav-link">
-                                    <i className="fa-solid fa-circle-user"></i>
+                                    <i class="fa-solid fa-circle-info"></i>
                                 </Link>
                             </Nav.Link>
                         </Nav>

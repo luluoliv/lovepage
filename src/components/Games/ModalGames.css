@@ -1,0 +1,124 @@
+.modal-gallery {
+    color: #efefef;
+}
+
+.modal-gallery-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.modal-gallery-btn {
+    display: flex;
+    margin: 0 auto;
+    color: #efefef;
+    border: #efefef;
+}
+
+.search-game,
+.modal-gallery-file,
+.modal-gallery-textarea {
+    border-radius: 15px;
+}
+
+.search-game,
+.modal-gallery-textarea{
+    resize: none;
+}
+
+.search-game:focus,
+.modal-gallery-file:focus,
+.modal-gallery-textarea:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #b4b4b4;
+}
+
+.search-game{
+    width: 60%;
+}
+
+.toggle-p{
+    font-size: 14px;
+    margin-top: -20px;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.toggle-p:hover{
+    opacity: 0.5;
+}
+
+.game-div{
+    min-height: fit-content;
+    max-height: 500px;
+}
+
+.carousel-container {
+    overflow: hidden;
+}
+
+.carousel {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+.search-div{
+    margin-top: 20px;
+}
+
+.inp-but-div{
+    display: flex;
+    flex-direction: row;
+}
+
+.search-button{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    color: #efefef;
+    border: #efefef;
+}
+
+.search-result{
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    gap: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    max-height: 200px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px 0 0 10px;
+    margin-bottom: 5px;
+}
+
+.search-row{
+    border-radius: 10px;
+    padding: 15px;
+    min-height: 50px;
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.search-row:hover{
+    background-color: rgb(218, 218, 218);
+}
+
+.search-row p{
+    margin: 0;
+    color: rgba(0, 0, 0, 0.781);
+}
+
+.selected-game{
+    border: 2px solid; /* Set the initial border */
+    border-color: rgb(133, 113, 5); /* Border colors: top = #f00, bottom = transparent */
+}

@@ -21,6 +21,10 @@
     font-size: 2em;
 }
 
+.btn-plus:hover{
+    color: #3b3b3b;
+}
+
 .modal-content {
     padding: 4%;
     margin: 5% auto;
