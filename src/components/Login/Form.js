@@ -42,7 +42,7 @@ function LoginForm(props) {
             <h3 className="card-title">LovingDevs</h3>
             <p className="card-p">Logue sua conta ou entre como Visitante!</p>
             <Form className="mt-2"
-            onSubmit={handleSubmit}
+                onSubmit={handleSubmit}
             >
 
                 <Form.Select

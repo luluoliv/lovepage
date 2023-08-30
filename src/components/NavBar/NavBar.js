@@ -61,7 +61,7 @@ export default function NavBar() {
                         </Nav>
                         <Nav>
                             <Link
-                                to="/"
+                                to="/login"
                                 onClick={handleClickLogout}
                                 className="nav-link"
                             >

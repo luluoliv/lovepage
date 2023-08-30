@@ -20,7 +20,7 @@ function FormsButton(props) {
 
     useEffect(() => {
         if (!isLoggedIn) {
-            navigate("/");
+            navigate("/login");
         } else {
             navigate("/home");
         }
