@@ -1,5 +1,4 @@
 .div-style {
-    display: flex;
     position: fixed;
     background-image: url('../../assets/bgLogin.svg');
     background-repeat: no-repeat;
@@ -7,13 +6,7 @@
     width: 100%;
     height: 100%;
   }
-  
-.img-style {
-  position: absolute;
-  height: 75%;
-  left: 10%;
-  top: 18%;
-}
+
   
 .loading-div{
   display: flex;

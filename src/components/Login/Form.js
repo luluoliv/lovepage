@@ -15,7 +15,6 @@ function LoginForm(props) {
     const { loading, setLoading } = props
     const { toastState, setToastState } = props
 
-
     const toggleShowPassword = () => setShowPassword((prev) => !prev);
 
     const toggleValidUser = () =>{
@@ -41,13 +40,14 @@ function LoginForm(props) {
     return (
         <Card className="card-style">
             <h3 className="card-title">LovingDevs</h3>
+            <p className="card-p">Logue sua conta ou entre como Visitante!</p>
             <Form className="mt-2"
             onSubmit={handleSubmit}
             >
 
                 <Form.Select
                     className="input-style"
-                    aria-label="Default select example"
+                    aria-label="Quem é você"
                     onChange={handleOptionChange}
                 >
                     <option value="Visitante">Quem é você</option>

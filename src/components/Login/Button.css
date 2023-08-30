@@ -16,6 +16,11 @@
     color: #ffffff;
 }
 
+.forms-button:active {
+    background-color: #993939;
+    transform: translateY(2px); 
+}
+
 .loading-div{
     position: absolute;
     bottom: 0;

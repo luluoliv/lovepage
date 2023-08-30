@@ -1,11 +1,11 @@
-.movie-grid{
+.movie-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
     margin: 1% 5% 0 5%;
 }
 
-.movie-item{
+.movie-item {
     margin: 10px;
     width: 160px;
     height: fit;
@@ -17,13 +17,12 @@
     transform: translateY(5px);
 }
 
-.text-div{
+.text-div {
     text-align: left;
     margin: 10px;
 }
 
-
-.movie-item img{
+.movie-item img {
     flex: 0 0 auto;
     width: auto;
     height: 40vh;
@@ -31,12 +30,39 @@
     box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.151);
 }
 
-.movie-item p{
+.movie-img.watched {
+    filter: grayscale(80%);
+}
+
+.movie-item p {
     flex: 1;
     word-break: break-all;
 }
 
-.movie-alert{
+.movie-alert {
     font-size: 1.2em;
     text-align: left;
+}
+
+
+.checkbox-movie {
+    position: absolute;
+    margin: 10px;
+    color: #d9d9d9;
+}
+
+
+.checkbox-movie[type="checkbox"]:checked::after {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    top: 5px;
+    left: 9px;
 }
