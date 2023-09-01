@@ -1,64 +1,62 @@
-.card-style {
-    display: flex;
-    justify-content: center;
-    margin: 5% auto;
-    width: 700px;
-    height: 70vh;
+.form-style {
     background-color: transparent;
-    border-radius: 64px;
+    width: 40%;
+    height: 100vh;
+    background-color: #252525;
+    color: #d9d9d9;
+    padding: 7%;
+    
     border: none;
-    padding: 3%;
     text-align: left;
 }
 
-.card-title {
+.form-title {
     font-size: 3em;
 }
 
-.card-p{
+.form-p {
     font-size: 1.2em;
 }
 
-.input-style {
-    display: flex;
-    cursor: pointer;
-    justify-content: center;
-    align-items: center;
+.form-input{
+    background-color: #252525;
     height: 50px;
-    outline: none;
-    background-color: transparent;
+    margin-top: 50px;
     border-radius: 18px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    border: solid 1px #252525;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    color: #d9d9d9;
 }
 
-.input-style:focus {
-    border: solid 1px #252525;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
-
-.input-content {
+.form-input:focus{
+    box-shadow: none;
     outline: none;
-    width: 100%;
+}
+
+.group{
+    border: solid 1px #d9d9d9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 5px;
+}
+
+.form-input-content{
+    color: #d9d9d9;
     height: 100%;
+    width: 100%;
+    background-color: transparent;
+    border: none;
     border-radius: 18px;
+}
+
+.form-input-content:focus{
+    border: none;
+    outline: none;
     background-color: transparent;
     box-shadow: none;
-    border: none;
 }
 
-.input-content:focus {
-    box-shadow: none;
-    background-color: #d9d9d9;
-    outline: none;
+.login-eye{
+    height: fit;
 }
 
-.input-content::after {
-    display: none;
-  }
 
-.input-content::-ms-reveal {
-    display: none;
-}

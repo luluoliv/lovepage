@@ -6,8 +6,8 @@
 }
 
 .photo-item {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 40vh;
     border-radius: 15px;
     padding: 1.5rem;
     background: white;
@@ -61,9 +61,7 @@
     z-index: 3;
     color: white;
     opacity: 0;
-    transform: translateY(30px);
     transition: 0.4s ease-out;
-    text-align: center;
     overflow: hidden;
     overflow-wrap: break-word;
 }

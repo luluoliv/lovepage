@@ -27,9 +27,10 @@ function ModalGallery(props) {
             refresh: refresh,
             setRefresh: setRefresh,
         });
-
+        setDesc("");
         props.onHide();
     };
+
 
     return (
         <>
