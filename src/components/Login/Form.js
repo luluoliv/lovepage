@@ -41,7 +41,7 @@ function LoginForm(props) {
         <Card className="card-style">
             <h3 className="card-title">LovingDevs</h3>
             <p className="card-p">Logue sua conta ou entre como Visitante!</p>
-            <Form className="mt-2"
+            <Form className="mt-2 form"
                 onSubmit={handleSubmit}
             >
 
@@ -94,7 +94,7 @@ function LoginForm(props) {
                     ></i> 
                 </Form.Group>
                 <FormsButton
-                    name={"Logar"}
+                    name={"Entrar"}
                     username={selectedOption ? selectedOption : 'Visitante'}
                     password={password ? password : ''}
                     loading={loading}

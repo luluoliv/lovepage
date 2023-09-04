@@ -2,10 +2,10 @@
     background-color: #e08181;
     color: #ffffff;
     font-size: 1.3em;
-    width: 300px;
+    width: 250px;
     height: 55px;
     padding: 1.5%;
-    margin-top: 50px;
+    margin-top: 25px;
     bottom: 0;
     border-radius: 18px;
     transition: background-color 0.3s, color 0.3s;

@@ -14,14 +14,14 @@ export default async function DeleteFeature(props){
             }
         );
         props.closeModal();
-        props.notify(true, "Foto deletada com sucesso");
+        props.notify(true, "Feature deletada com sucesso");
         props.setRefresh(!props.refresh);
     } catch (err) {
         console.log(err);
         props.closeModal();
 
         if (err.response && (err.response === 404 || err.response === 410)) {
-            props.notify(false, "Erro: a foto já foi deletada.");
+            props.notify(false, "Erro: a feature já foi deletada.");
         } else {
             props.notify(false, "Erro: ação somente para admins");
         }

@@ -7,6 +7,9 @@ export default async function PostFeature(props){
     //photo_file
     //desc
     //type
+    //notify
+    //setIsLoading
+    //setRefresh
 
     const formData = new FormData();
     props.name && formData.append("name", props.name)

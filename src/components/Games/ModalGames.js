@@ -6,12 +6,18 @@ import EmblaCarousel from "./EmblaCarrousel";
 import GetJogosDestaque from "../../hooks/Games/GetJogosDestaque";
 import SearchGame from "../../hooks/Games/SearchGame";
 import GetGameDetails from "../../hooks/Games/GetGameDetails";
+import PostFeature from "../../hooks/Features/PostFeature";
+import ChooseAFile from "./ChooseAFile";
 
 import './ModalGames.css'
 
 export default function ModalGames(props){
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
     const [photoFile, setPhotoFile] = useState(null);
-    const [desc, setDesc] = useState("");
+    const [photoUrl, setPhotoUrl] = useState(null)
+
+    const [title, setTitle] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [toggleAPIGames, settoggleAPIGames] = useState(true)
 
@@ -25,6 +31,9 @@ export default function ModalGames(props){
     const [selectedgame, setSelectedGame] = useState(null)
     const { refresh, setRefresh } = props;
 
+    const openModal = () => setModalIsOpen(true);
+    const closeModal = () => setModalIsOpen(false);
+
     const OPTIONS = { loop: true }
     const SLIDE_COUNT = 5
     const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
@@ -33,7 +42,7 @@ export default function ModalGames(props){
         GetJogosDestaque({
             setJogosDestaque: setJogosDestaque,
         });
-    }, [refresh, setRefresh]);
+    }, []);
 
     const searchGame = async () =>{
         if(search !== '' ){
@@ -47,15 +56,114 @@ export default function ModalGames(props){
     }
 
     const getGameDetails = async (game_id) => {
-        GetGameDetails({
+        await GetGameDetails({
             game_id: game_id,
             setSearchedGameDetail: setSearchedGameDetail
         })
     }
+
+    const postGame = async () =>{
+        if(selectedgame && selectedgame.slug === undefined){
+            
+            await getGameDetails(selectedgame.game)
+
+            if(searchedGameDetail && searchedGameDetail.artwork_data){
+                setIsLoading(true)
+                await PostFeature({
+                    isPhotoUrl: true,
+                    name: selectedgame.name,
+                    photo_url: searchedGameDetail.artwork_data[0].url,
+                    type: 'jogo',
+                    notify: Notify,
+                    setIsLoading: setIsLoading,
+                    setRefresh: setRefresh,
+                    refresh: refresh
+                })
+                props.onHide()
+
+            }else if(photoUrl !== null && photoFile == null){
+                setIsLoading(true)
+                await PostFeature({
+                    isPhotoUrl: true,
+                    name: selectedgame.name,
+                    photo_url: photoUrl,
+                    type: 'jogo',
+                    notify: Notify,
+                    setIsLoading: setIsLoading,
+                    setRefresh: setRefresh,
+                    refresh: refresh
+                })
+                props.onHide()
+            }else if(photoFile != null && photoUrl == null){
+                setIsLoading(true)
+                await PostFeature({
+                    isPhotoUrl: false,
+                    name: selectedgame.name,
+                    photo_file: photoFile,
+                    type: 'jogo',
+                    notify: Notify,
+                    setIsLoading: setIsLoading,
+                    setRefresh: setRefresh,
+                    refresh: refresh
+                })
+                props.onHide()
+            }
+            else{
+                openModal()
+                Notify(false, "Adicione uma imagem")
+            }
+            setPhotoUrl(null)
+            setPhotoFile(null)
+
+        }else{
+            setIsLoading(true)
+            await PostFeature({
+                isPhotoUrl: true,
+                name: selectedgame.name,
+                photo_url: selectedgame.background_image,
+                type: 'jogo',
+                notify: Notify,
+                setIsLoading: setIsLoading,
+                setRefresh: setRefresh,
+                refresh: refresh
+            })
+            props.onHide()
+        }
+    }
     
+    const postDefaultGame = async () =>{
+        if(title && photoFile){
+            setIsLoading(true)
+            await PostFeature({
+                isPhotoUrl: false,
+                name: title,
+                photo_file: photoFile,
+                type: 'jogo',
+                notify: Notify,
+                setIsLoading: setIsLoading,
+                setRefresh: setRefresh,
+                refresh: refresh
+            })
+            setTitle(null)
+            setPhotoFile(null)
+            props.onHide()
+        }else{
+            Notify(false, 'Adicione dados!')
+        }
+    }
+
     return (
         <>
             <ToastContainer />
+            <ChooseAFile
+                visibilityHandler={{
+                    show: modalIsOpen,
+                    onHide: closeModal
+                }}
+                setPhotoFile={setPhotoFile}
+                setPhotoUrl={setPhotoUrl}
+                PhotoUrl={photoUrl}
+            />
             <Modal 
                 className="modal-gallery"
                 {...props}
@@ -144,9 +252,8 @@ export default function ModalGames(props){
                                             <Button
                                                 className="modal-gallery-btn"
                                                 variant="outline-dark"
-                                                type="submit"
                                                 disabled={isLoading}
-                                                //onClick={postPhoto}
+                                                onClick={() => postGame()}
                                             >
                                                 {isLoading ? "Enviando..." : "Enviar"}
                                             </Button>
@@ -166,8 +273,8 @@ export default function ModalGames(props){
                                     <Form.Control
                                         className="modal-gallery-textarea"
                                         rows={3}
-                                        value={desc}
-                                        onChange={(e) => setDesc(e.target.value)}
+                                        value={title}
+                                        onChange={(e) => setTitle(e.target.value)}
                                     />
                                 </Form.Group>
                                 <Form.Label>Imagem</Form.Label>
@@ -180,9 +287,8 @@ export default function ModalGames(props){
                                 <Button
                                     className="modal-gallery-btn"
                                     variant="outline-dark"
-                                    type="submit"
                                     disabled={isLoading}
-                                    //onClick={postPhoto}
+                                    onClick={()=>postDefaultGame()}
                                 >
                                     {isLoading ? "Enviando..." : "Enviar"}
                                 </Button>
