@@ -1,52 +1,48 @@
 import React from "react";
-import { Card, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { useState } from "react";
 
 import FormsButton from "./Button";
 
 import "./Form.css";
 
-
 function LoginForm(props) {
     const [showPassword, setShowPassword] = useState(false);
-    const [selectedOption, setSelectedOption] = useState('');
-    const [password, setPassword] = useState('')
+    const [selectedOption, setSelectedOption] = useState("");
+    const [password, setPassword] = useState("");
 
-    const { loading, setLoading } = props
-    const { toastState, setToastState } = props
+    const { loading, setLoading } = props;
+    const { toastState, setToastState } = props;
 
     const toggleShowPassword = () => setShowPassword((prev) => !prev);
 
-    const toggleValidUser = () =>{
-        if(selectedOption === 'Luara' || selectedOption === 'Guilherme'){
-            return true
-        }else{
-            return false
+    const toggleValidUser = () => {
+        if (selectedOption === "Luara" || selectedOption === "Guilherme") {
+            return true;
+        } else {
+            return false;
         }
-    }
+    };
 
-    const handlePassword = (e) =>{
-        setPassword(e.target.value)
-    }
+    const handlePassword = (e) => {
+        setPassword(e.target.value);
+    };
 
     const handleOptionChange = (e) => {
-        setSelectedOption(e.target.value)
-    }
+        setSelectedOption(e.target.value);
+    };
 
     const handleSubmit = (event) => {
-        event.preventDefault()
-      };
+        event.preventDefault();
+    };
 
     return (
-        <Card className="card-style">
-            <h3 className="card-title">LovingDevs</h3>
-            <p className="card-p">Logue sua conta ou entre como Visitante!</p>
-            <Form className="mt-2 form"
-                onSubmit={handleSubmit}
-            >
-
+        <div className="form-style">
+            <h3 className="form-title">LovingDevs</h3>
+            <p className="form-p">Logue sua conta ou entre como Visitante!</p>
+            <Form onSubmit={handleSubmit}>
                 <Form.Select
-                    className="input-style"
+                    className="form-input select"
                     aria-label="Quem é você"
                     onChange={handleOptionChange}
                 >
@@ -56,30 +52,26 @@ function LoginForm(props) {
                     <option value="Visitante">Visitante</option>
                 </Form.Select>
 
-                <Form.Group
-                    className="input-style"
-                    //controlId="formGroupPassword"
-                >   
-                {
-                    toggleValidUser() ? (
+                <Form.Group className="form-input group">
+                    {toggleValidUser() ? (
                         <Form.Control
-                            className="input-content"
+                        style={{color: '#d9d9d9'}}
+                            className="form-input-content"
                             id="login-input"
                             type={showPassword ? "text" : "password"}
                             onChange={handlePassword}
                             placeholder="Senha"
                             autoComplete="off"
                         />
-                    ) :  (
+                    ) : (
                         <Form.Control
-                            className="input-content"
+                            className="form-input-content"
                             id="login-input"
                             placeholder="Senha"
                             readOnly
                         />
-                    )
-                }   
-                
+                    )}
+
                     <i
                         style={{
                             backgroundColor: "transparent",
@@ -91,19 +83,20 @@ function LoginForm(props) {
                         className={`fa-regular ${
                             showPassword ? "fa-eye-slash" : "fa-eye"
                         }`}
-                    ></i> 
+                    ></i>
                 </Form.Group>
                 <FormsButton
-                    name={"Entrar"}
-                    username={selectedOption ? selectedOption : 'Visitante'}
-                    password={password ? password : ''}
+                    name={"Logar"}
+                    username={selectedOption ? selectedOption : "Visitante"}
+                    password={password ? password : ""}
                     loading={loading}
                     setLoading={setLoading}
                     toastState={toastState}
                     setToastState={setToastState}
                 />
             </Form>
-        </Card>
+            <a href="/">Cadastre-se</a>
+        </div>
     );
 }
 

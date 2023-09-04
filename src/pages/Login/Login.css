@@ -1,17 +1,33 @@
-.div-style {
-    position: fixed;
-    background-image: url('../../assets/bgLogin.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
+.login-page {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(
+        to right top,
+        #e08181,
+        #df97aa,
+        #d7aec7,
+        #d2c5d6,
+        #d9d9d9
+    );
+}
+
+.login-page-body {
     width: 100%;
     height: 100%;
-  }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-  
-.loading-div{
-  display: flex;
-  position: absolute;
-  width: 100%;
-  justify-content: center;
-  bottom: 20px
+.login-illustration {
+    width: 700px;
+    margin: 0 auto;
+}
+
+.loading-div {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    justify-content: center;
+    bottom: 20px;
 }

@@ -3,6 +3,7 @@
     flex-wrap: wrap;
     justify-content: left;
     margin: 1% 5% 0 5%;
+    gap: 50px;
 }
 
 .movie-item {

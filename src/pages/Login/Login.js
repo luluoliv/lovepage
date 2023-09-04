@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import LoginForm from "../../components/Login/Form";
 import HeartLoading from "../../components/Login/Loading";
 import "./Login.css";
+
+import loginSVG from "./../../assets/loginSvg.svg";
 import { toast, ToastContainer } from "react-toastify";
 
 function Login() {
@@ -26,14 +28,23 @@ function Login() {
     return (
         <>
             <ToastContainer />
-            <div className="div-style">
-                <LoginForm
-                    loading={loading}
-                    setLoading={setLoading}
-                    toastState={toastState}
-                    setToastState={setToastState}
-                />
-                <div className="loading-div">{loading && <HeartLoading />}</div>
+            <div className="login-page">
+                <div className="login-page-body">
+                    <LoginForm
+                        loading={loading}
+                        setLoading={setLoading}
+                        toastState={toastState}
+                        setToastState={setToastState}
+                    />
+                    <img
+                        className="login-illustration"
+                        src={loginSVG}
+                        alt="imagem-de-fundo"
+                    />
+                    <div className="loading-div">
+                        {loading && <HeartLoading />}
+                    </div>
+                </div>
             </div>
         </>
     );
