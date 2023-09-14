@@ -2,6 +2,7 @@ import React from "react";
 import { Form } from "react-bootstrap";
 import { useState } from "react";
 
+
 import FormsButton from "./Button";
 
 import "./Form.css";
@@ -24,6 +25,14 @@ function LoginForm(props) {
         }
     };
 
+    const notifyNotAvaiableYet = () =>{
+        setToastState({
+            state: true,
+            type: "error",
+            message: "Cadastro em desenvolvimento.",
+        });
+    }
+
     const handlePassword = (e) => {
         setPassword(e.target.value);
     };
@@ -40,15 +49,15 @@ function LoginForm(props) {
         <div className="form-style">
             <h3 className="form-title">LovingDevs</h3>
             <p className="form-p">Logue sua conta ou entre como Visitante!</p>
-            <Form onSubmit={handleSubmit}>
+            <Form className='form-gp' onSubmit={handleSubmit}>
                 <Form.Select
                     className="form-input select"
                     aria-label="Quem é você"
                     onChange={handleOptionChange}
                 >
                     <option value="Visitante">Quem é você</option>
-                    <option value="Luara">Lulu</option>
-                    <option value="Guilherme">Guizen</option>
+                    <option value="Luara">Luara</option>
+                    <option value="Guilherme">Guilherme</option>
                     <option value="Visitante">Visitante</option>
                 </Form.Select>
 
@@ -95,7 +104,7 @@ function LoginForm(props) {
                     setToastState={setToastState}
                 />
             </Form>
-            <a href="/">Cadastre-se</a>
+            <a className="signup" onClick={()=> notifyNotAvaiableYet()}>Cadastre-se</a>
         </div>
     );
 }
